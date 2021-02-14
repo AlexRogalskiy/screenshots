@@ -30,9 +30,12 @@ tmp/
 build/*
 packages/
 target/
+images/
 log/
 site/
 dist/
 .cache
 node_modules
+.vercel
+
 .vercel

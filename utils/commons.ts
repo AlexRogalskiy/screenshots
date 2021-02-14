@@ -1,4 +1,7 @@
 import fetch from 'isomorphic-unfetch'
+import { existsSync, mkdirSync } from 'fs'
+import { join } from 'path'
+import { ImageLocations } from '../typings/types'
 
 export const toBase64ImageUrl = async (imgUrl): Promise<string> => {
     const fetchImageUrl = await fetch(imgUrl)
@@ -19,6 +22,17 @@ export const isBlankString = (str: string): boolean => {
 
 export const notBlankOrElse = (str: string, defaultValue: string): string => {
     return isBlankString(str) ? defaultValue : str
+}
+
+export const toBoolean = (value): boolean => {
+    return (
+        value === true ||
+        value === 'true' ||
+        value === 1 ||
+        value === '1' ||
+        value === 'on' ||
+        value === 'yes'
+    )
 }
 
 export const toString = (str: string | string[]): string => {
@@ -45,4 +59,20 @@ export const toInt = (str: string, defaultValue: number): number => {
     } catch (e) {
         return defaultValue
     }
+}
+
+export const createFilePath = (locations: ImageLocations): string => {
+    const date = new Date()
+    const timestamp = `${date.getFullYear()}_${
+        date.getMonth() + 1
+    }_${date.getDate()}_${date.getHours()}_${date.getMinutes()}`
+
+    const { path, name, extension } = locations
+    const fileName = `${name}-${timestamp}.${extension}`
+
+    if (!existsSync(path)) {
+        mkdirSync(path)
+    }
+
+    return join(path, fileName)
 }

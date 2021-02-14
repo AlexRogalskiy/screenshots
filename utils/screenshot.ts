@@ -1,37 +1,35 @@
-import { webshot } from 'webshot'
-import { path } from 'path'
-import { ImageOptions, ParsedRequest } from '../typings/types'
-import { toBase64ImageUrl, toFormatString } from './commons'
+import { ImageOptions, ParsedRequest, ResourceOptions } from '../typings/types'
+import BrowserSession from './browser'
+import { toFormatString } from './commons'
 import { CONFIG } from './config'
 
-export async function screenshotRenderer(parsedRequest: ParsedRequest): Promise<string | void> {
-    const file = getFilePath()
-    const options = { ...CONFIG.imageOptions, ...parsedRequest.options }
-    await createScreenshot(parsedRequest.url, file, options)
+export async function screenshotRenderer(parsedRequest: ParsedRequest): Promise<Buffer | string | void> {
+    const imageOptions = { ...CONFIG.imageOptions, ...parsedRequest.imageOptions }
+    const resourceOptions = { ...CONFIG.resourceOptions, ...parsedRequest.resourceOptions }
 
-    // eslint-disable-next-line github/no-then
-    return await toBase64ImageUrl(file).catch(console.error)
+    return await createScreenshot(parsedRequest.url, imageOptions, resourceOptions)
 }
 
-const createScreenshot = async (url: string, file: string, options: ImageOptions): Promise<void> => {
+const createScreenshot = async (
+    url: string,
+    imageOptions: ImageOptions,
+    resourceOptions: ResourceOptions,
+    file?: string
+): Promise<Buffer | string | void> => {
     console.log(
         `
         Generating screenshot with parameters:
         url=${url},
-        name=${file},
-        options=${toFormatString(options)}
+        name=${file}
+        imageOptions=${toFormatString(imageOptions)}
+        resourceOptions=${toFormatString(resourceOptions)}
         `
     )
 
-    await webshot(url, file, options, async err => {
-        if (err) throw err
-        console.log('screenshot captured')
-    })
-}
+    const browserSession = new BrowserSession()
+    await browserSession.setup()
+    const imageBuffer = await browserSession.createScreenshot(url, imageOptions, resourceOptions)
+    await browserSession.teardown()
 
-const getFilePath = (): string => {
-    return path.join(
-        CONFIG.locationOptions.path,
-        `${CONFIG.locationOptions.name}.${CONFIG.locationOptions.extension}`
-    )
+    return imageBuffer
 }

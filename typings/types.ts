@@ -1,8 +1,3 @@
-export interface ImageDimensions {
-    width: number
-    height: number
-}
-
 export interface ImageLocations {
     readonly name: string
     readonly path: string
@@ -10,24 +5,32 @@ export interface ImageLocations {
 }
 
 export interface ImageOptions {
-    readonly screenSize: ImageDimensions
-    readonly shotSize: ImageDimensions
-    readonly timeout: number
-    readonly defaultWhiteBackground: boolean
-    readonly userAgent: string
+    readonly width: number
+    readonly height: number
+    readonly deviceScaleFactor?: number
+}
+
+export interface ResourceOptions {
+    readonly fullPage: boolean
 }
 
 export interface ConfigOptions {
     readonly locationOptions: ImageLocations
     readonly imageOptions: ImageOptions
+    readonly resourceOptions: ResourceOptions
 }
 
 export interface ParsedImageOptions {
-    screenSize?: ImageDimensions
-    shotSize?: ImageDimensions
+    width?: number
+    height?: number
+}
+
+export interface ParsedResourceOptions {
+    fullPage?: boolean
 }
 
 export interface ParsedRequest {
     url: string
-    options?: ParsedImageOptions
+    imageOptions?: ParsedImageOptions
+    resourceOptions?: ParsedResourceOptions
 }

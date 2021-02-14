@@ -16,7 +16,9 @@
     "dependencies": {
         "isomorphic-unfetch": "^3.1.0",
         "jsdom": "^16.4.0",
-        "webshot": "^0.18.0"
+        "puppeteer": "^7.1.0",
+        "webshot": "^0.18.0",
+        "webshot-node": "^0.18.2"
     },
     "devDependencies": {
         "@types/jest": "^26.0.20",
