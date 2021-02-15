@@ -16,6 +16,15 @@
 ## _Table of contents_
 
 <!--ts-->
+   * [<em>Styled screenshots</em>](#styled-screenshots)
+      * [<em>Table of contents</em>](#table-of-contents)
+      * [<em>Description</em>](#description)
+      * [<em>How to use</em>](#how-to-use)
+      * [<em>Example</em>](#example)
+      * [<em>Contribution</em>](#contribution)
+
+<!-- Added by: runner, at: Mon Feb 15 02:08:29 UTC 2021 -->
+
 <!--te-->
 
 ## _Description_
