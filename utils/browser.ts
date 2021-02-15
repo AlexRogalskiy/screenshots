@@ -129,7 +129,7 @@ export default class BrowserSession {
      * Closes browser session on teardown
      */
     async teardown(): Promise<void> {
-        await this.page.close()
-        await this.browser.close()
+        if (this.page) await this.page.close()
+        if (this.browser) await this.browser.close()
     }
 }

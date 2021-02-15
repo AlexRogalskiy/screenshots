@@ -3,7 +3,7 @@ import { LaunchOptions } from 'playwright-chromium/types/types'
 import { BrowserContext } from 'playwright-core/types/types'
 
 import { ImageOptions, PlayPageOptions, ResourceOptions } from '../typings/types'
-import { mergeProps, separator, toFormatString } from './commons'
+import { mergeProps, separator, toBoolean, toFormatString } from './commons'
 import { CONFIG } from './config'
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
@@ -31,7 +31,10 @@ export default class PlaywrightSession {
      * @param options initial input {@link LaunchOptions}
      */
     async setup(options?: LaunchOptions): Promise<void> {
-        const browserOptions: LaunchOptions = mergeProps(CONFIG.playPageOptions, options)
+        const browserOptions: ImageOptions = mergeProps(
+            toBoolean(process.env.DEBUG) ? CONFIG.browserOptions.dev : CONFIG.browserOptions.prod,
+            options
+        )
 
         console.log(`\n>>> Browser options=${toFormatString(browserOptions)}`)
 
@@ -107,8 +110,8 @@ export default class PlaywrightSession {
      * Closes browser session on teardown
      */
     async teardown(): Promise<void> {
-        await this.page.close()
-        await this.context.close()
-        await this.browser.close()
+        if (this.page) await this.page.close()
+        if (this.context) await this.context.close()
+        if (this.browser) await this.browser.close()
     }
 }

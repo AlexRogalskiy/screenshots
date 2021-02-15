@@ -7,7 +7,7 @@
     "scripts": {
         "deploy:dev": "npm run setup:chrome && env-cmd -e prod vercel",
         "deploy:prod": "npm run setup:chrome && env-cmd -e prod vercel --prod",
-        "develop": "env-cmd -e dev vercel dev",
+        "develop": "env-cmd -e prod vercel dev",
         "setup:chrome": "unzip ./node_modules/puppeteer/.local-chromium/chrome-linux.zip",
         "lint": "eslint --fix .",
         "test": "TZ=utc jest",

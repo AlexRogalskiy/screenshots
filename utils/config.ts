@@ -33,7 +33,7 @@ export const CONFIG: ConfigOptions = {
             headless: true,
             slowMo: 40,
             devtools: false,
-            executablePath: process.env.PUPPETEER_EXEC_PATH,
+            executablePath: process.env.PUPPETEER_EXEC_PATH || '/usr/bin/chromium-browser',
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
