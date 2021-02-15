@@ -28,12 +28,10 @@ export const isValidUrl = (str: string): boolean => {
 }
 
 export const requireValidUrl = (str: string): string => {
-    try {
-        new URL(str)
+    if (isValidUrl(str)) {
         return str
-    } catch (e) {
-        throw e
     }
+    throw new Error(`Invalid URL: ${str}`)
 }
 
 export const isNonEmptyString = (str: string): boolean => {
@@ -68,7 +66,7 @@ export const omitNull = <T>(obj: T): T => {
 }
 
 export const mergeProps = <T>(...obj: unknown[]): T => {
-    return _.mergeWith({}, ...obj, (o, s) => (_.value === null ? o : s))
+    return _.mergeWith({}, ...obj, (o, s) => (_._.value === undefined ? o : s))
 }
 
 export const toString = (str: string | string[]): string => {

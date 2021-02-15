@@ -48,7 +48,7 @@ export default class BrowserSession {
             options
         )
 
-        console.log(`Browser options=${toFormatString(browserOptions)}`)
+        console.log(`\n>>> Browser options=${toFormatString(browserOptions)}`)
 
         this.browser = await browser.launch(browserOptions)
         this.page = await this.browser.newPage()

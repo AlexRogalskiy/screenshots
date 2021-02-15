@@ -49,4 +49,7 @@ export const CONFIG: ConfigOptions = {
     launchOptions: {
         chromiumSandbox: false,
     },
+    playPageOptions: {
+        waitUntil: 'load',
+    },
 }

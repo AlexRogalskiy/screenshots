@@ -9,6 +9,12 @@ export enum BrowserProfile {
     prod = 'prod',
 }
 
+// eslint-disable-next-line no-shadow
+export enum BrowserType {
+    chromium = 'chromium',
+    firefox = 'firefox',
+}
+
 export type BrowserProfileOptions = {
     [K in BrowserProfile]: LaunchOptions & ChromeArgOptions & BrowserOptions
 }
@@ -108,11 +114,11 @@ export interface ResourceOptions {
     /**
      * Image content type
      */
-    readonly type?: ImageContentType
+    readonly type: ImageContentType
     /**
      * Image content transfer encoding
      */
-    readonly encoding?: ImageEncodingType
+    readonly encoding: ImageEncodingType
 }
 
 export interface ConfigOptions {
@@ -127,7 +133,7 @@ export interface ConfigOptions {
     /**
      * Resource configuration options
      */
-    readonly resourceOptions?: ResourceOptions
+    readonly resourceOptions: ResourceOptions
     /**
      * Page configuration options
      */

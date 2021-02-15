@@ -6,7 +6,6 @@ import { ImageOptions, PlayPageOptions, ResourceOptions } from '../typings/types
 import { mergeProps, separator, toFormatString } from './commons'
 import { CONFIG } from './config'
 
-// const browser = require('playwright-aws-lambda')
 // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
 const { chromium } = require('playwright-chromium')
 
@@ -37,14 +36,9 @@ export default class PlaywrightSession {
         console.log(`\n>>> Browser options=${toFormatString(browserOptions)}`)
 
         // Launches the Chromium browser.
-        //this.browser = await browser.launchChromium(browserOptions)
         this.browser = await chromium.launch(browserOptions)
         this.context = await this.browser.newContext()
         this.page = await this.context.newPage()
-        // Downloads and activates a custom font
-        // await browser.loadFont(
-        //     'https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf'
-        // )
     }
 
     /**
