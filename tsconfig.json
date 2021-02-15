@@ -25,13 +25,21 @@
         "typeRoots": [
             "node_modules/@types"
         ],
-        "target": "ES2018",
+        "target": "ES2019",
         "module": "commonjs",
         "resolveJsonModule": true,
         "moduleResolution": "node",
         "sourceMap": false,
         "declaration": true,
-        "declarationMap": true
+        "declarationMap": true,
+        "pretty": true,
+        "inlineSourceMap": false,
+        "inlineSources": false,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true
     },
     "exclude": [
         "node_modules",

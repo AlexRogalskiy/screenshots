@@ -19,6 +19,9 @@
         "isomorphic-unfetch": "^3.1.0",
         "jsdom": "^16.4.0",
         "lodash": "^4.17.20",
+        "playwright-aws-lambda": "^0.6.0",
+        "playwright-chromium": "^1.8.1",
+        "playwright-core": "^1.8.1",
         "puppeteer": "^7.1.0"
     },
     "devDependencies": {
@@ -44,6 +47,12 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/AlexRogalskiy/screenshots.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">= 8.0.0"
     },
     "keywords": [
         "github-actions",

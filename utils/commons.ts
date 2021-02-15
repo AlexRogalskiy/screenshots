@@ -22,6 +22,15 @@ export const isValidUrl = (str: string): boolean => {
     }
 }
 
+export const requireValidUrl = (str: string): string => {
+    try {
+        new URL(str)
+        return str
+    } catch (e) {
+        throw e
+    }
+}
+
 export const isNonEmptyString = (str: string): boolean => {
     return str && str.length > 0
 }

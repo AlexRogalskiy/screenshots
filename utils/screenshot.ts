@@ -1,5 +1,6 @@
 import { ImageOptions, ParsedRequest, ResourceOptions } from '../typings/types'
-import BrowserSession from './browser'
+// import BrowserSession from './browser'
+import PlaywrightSession from './playwright'
 import { mergeProps, toFormatString } from './commons'
 import { CONFIG } from './config'
 
@@ -17,8 +18,7 @@ const createScreenshot = async (
     file?: string
 ): Promise<Buffer | string | void> => {
     console.log(
-        `
-        Generating screenshot with parameters:
+        `>>> Generating screenshot with parameters:
         url=${url},
         name=${file}
         imageOptions=${toFormatString(imageOptions)}
@@ -26,7 +26,7 @@ const createScreenshot = async (
         `
     )
 
-    const browserSession = new BrowserSession()
+    const browserSession = new PlaywrightSession()
     await browserSession.setup()
     const imageBuffer = await browserSession.createScreenshot(
         url,

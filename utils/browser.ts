@@ -1,4 +1,4 @@
-import { BrowserOptions, ChromeArgOptions, LaunchOptions } from 'puppeteer'
+import { Browser, BrowserOptions, ChromeArgOptions, LaunchOptions, Page } from 'puppeteer'
 import { ImageOptions, PageOptions, ResourceOptions } from '../typings/types'
 import { mergeProps, toBoolean, toFormatString } from './commons'
 import { CONFIG } from './config'
@@ -7,8 +7,8 @@ import { CONFIG } from './config'
 const browser = require('puppeteer')
 
 export default class BrowserSession {
-    private browser
-    private page
+    private browser: Browser
+    private page: Page
 
     /**
      * Obtains browser and page object on bootstrap
@@ -43,6 +43,6 @@ export default class BrowserSession {
      * Closes browser on teardown
      */
     async teardown(): Promise<void> {
-        this.browser.close()
+        await this.browser.close()
     }
 }

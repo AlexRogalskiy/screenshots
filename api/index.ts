@@ -1,12 +1,12 @@
 import { NowRequest, NowResponse, VercelResponse } from '@vercel/node/dist'
-import { notBlankOrElse, toBoolean, toInt, toString } from '../utils/commons'
+import { notBlankOrElse, toBoolean, toInt, toString, requireValidUrl } from '../utils/commons'
 import { screenshotRenderer } from '../utils/screenshot'
 import { ImageContent, ImageContentType, ImageEncoding, ImageEncodingType } from '../typings/types'
 import { CONFIG } from '../utils/config'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
-        const url = toString(req.query.url)
+        const url = requireValidUrl(toString(req.query.url))
         const width = toInt(toString(req.query.width))
         const height = toInt(toString(req.query.height))
 
