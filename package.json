@@ -16,7 +16,7 @@
         "test:watch": "jest --watch"
     },
     "dependencies": {
-        "chromium": "^3.0.2",
+        "chromium": "^3.2171.3008",
         "env-cmd": "^10.1.0",
         "isomorphic-unfetch": "^3.1.0",
         "jsdom": "^16.4.0",
