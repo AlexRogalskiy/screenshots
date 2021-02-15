@@ -14,16 +14,16 @@ export interface ImageOptions {
 }
 
 export declare interface ImageClipOptions {
-    x: number
-    y: number
-    width: number
-    height: number
+    readonly x: number
+    readonly y: number
+    readonly width: number
+    readonly height: number
 }
 
 export interface PageOptions {
-    referer?: string
-    timeout?: number
-    waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[]
+    readonly referer?: string
+    readonly timeout?: number
+    readonly waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[]
 }
 
 export interface ResourceOptions {

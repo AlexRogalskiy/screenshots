@@ -33,11 +33,14 @@ It's simple, you can copy paste this markdown content, like this one:
 
 There are several options you can use from the list:
 
-|  Options  | Description               |   Type                           | Example                | Query Params          | 
-| --------- | ------------------------- | -------------------------------- | ---------------------- | --------------------- |
-| Url       | Json data source url      | String url in json data format   | https://host/data.json | ```?url=[value]```    |
-| Width     | Chart graph image width   | Numeric image width              | 400                    | ```&width=[value]```  |
-| Height    | Chart graph image height  | Numeric image height             | 400                    | ```&height=[value]``` |
+|  Options  | Description               |   Type                           | Example                | Query Params              | 
+| --------- | ------------------------- | -------------------------------- | ---------------------- | ------------------------- |
+| Url       | Json data source url      | String url in json data format   | https://host/data.json | ```?url=[value]```        |
+| Width     | Chart graph image width   | Numeric image width              | 400                    | ```&width=[value]```      |
+| Height    | Chart graph image height  | Numeric image height             | 400                    | ```&height=[value]```     |
+| FullPage  | Full page viewport        | Boolean/numeric                  | true|false || 1|0      | ```&fullPage=[value]```   |
+| Type      | Image content type        | String                           | jpeg | png             | ```&type=[value]```       |
+| Encoding  | Image encoding            | String                           | base64 | binary        | ```&encoding=[value]```   |
 
 ## _Example_
 

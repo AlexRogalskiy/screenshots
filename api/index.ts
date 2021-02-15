@@ -1,7 +1,8 @@
 import { NowRequest, NowResponse, VercelResponse } from '@vercel/node/dist'
-import { toBoolean, toInt, toString } from '../utils/commons'
+import { notBlankOrElse, toBoolean, toInt, toString } from '../utils/commons'
 import { screenshotRenderer } from '../utils/screenshot'
 import { ImageContent, ImageContentType, ImageEncoding, ImageEncodingType } from '../typings/types'
+import { CONFIG } from '../utils/config'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
@@ -25,7 +26,9 @@ export default async function render(req: NowRequest, res: NowResponse): Promise
         res.setHeader('Cache-Control', 'no-cache,max-age=0,no-store,s-maxage=0,proxy-revalidate')
         res.setHeader('Pragma', 'no-cache')
         res.setHeader('Expires', '-1')
-        res.setHeader('Content-type', 'image/png')
+        res.setHeader('Content-type', `image/${notBlankOrElse(type, CONFIG.resourceOptions.type)}`)
+        res.setHeader('Content-transfer-encoding', `${notBlankOrElse(encoding, CONFIG.resourceOptions.encoding)}`)
+        res.setHeader('X-Powered-By', 'Vercel')
 
         return res.send(screenshot)
     } catch (error) {
