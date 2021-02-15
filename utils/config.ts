@@ -19,6 +19,7 @@ export const CONFIG: ConfigOptions = {
         headless: true,
         slowMo: 40,
         devtools: false,
+        executablePath: './node_modules/puppeteer/.local-chromium/win64-848005/chrome-win/chrome.exe',
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
     },
     pageOptions: {
