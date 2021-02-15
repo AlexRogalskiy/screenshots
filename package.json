@@ -5,9 +5,9 @@
     "main": "index.js",
     "license": "GPL-3.0",
     "scripts": {
-        "deploy:dev": "vercel",
-        "deploy:prod": "vercel --prod",
-        "develop": "vercel dev",
+        "deploy:dev": "DEBUG=true vercel",
+        "deploy:prod": "DEBUG=true vercel --prod",
+        "develop": "DEBUG=true vercel dev",
         "lint": "eslint --fix .",
         "test": "TZ=utc jest",
         "test:coverage": "jest --collectCoverage",
