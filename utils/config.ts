@@ -11,6 +11,17 @@ export const CONFIG: ConfigOptions = {
         height: 800,
     },
     resourceOptions: {
-        fullPage: true,
+        fullPage: false,
+        type: 'png',
+        encoding: 'binary',
+    },
+    browserOptions: {
+        headless: true,
+        slowMo: 40,
+        devtools: false,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    },
+    pageOptions: {
+        waitUntil: 'domcontentloaded',
     },
 }

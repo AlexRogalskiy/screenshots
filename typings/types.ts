@@ -1,3 +1,6 @@
+import { BrowserOptions, ChromeArgOptions, LaunchOptions, PuppeteerLifeCycleEvent } from 'puppeteer'
+import { strToEnum } from '../utils/commons'
+
 export interface ImageLocations {
     readonly name: string
     readonly path: string
@@ -10,14 +13,35 @@ export interface ImageOptions {
     readonly deviceScaleFactor?: number
 }
 
+export declare interface ImageClipOptions {
+    x: number
+    y: number
+    width: number
+    height: number
+}
+
+export interface PageOptions {
+    referer?: string
+    timeout?: number
+    waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[]
+}
+
 export interface ResourceOptions {
-    readonly fullPage: boolean
+    readonly fullPage?: boolean
+    readonly quality?: number
+    readonly omitBackground?: boolean
+    readonly type?: ImageContentType
+    readonly encoding?: ImageEncodingType
+    readonly path?: string
 }
 
 export interface ConfigOptions {
     readonly locationOptions: ImageLocations
     readonly imageOptions: ImageOptions
-    readonly resourceOptions: ResourceOptions
+    readonly resourceOptions?: ResourceOptions
+    readonly pageOptions?: PageOptions
+    readonly imageClipOptions?: ImageClipOptions
+    readonly browserOptions?: LaunchOptions & ChromeArgOptions & BrowserOptions
 }
 
 export interface ParsedImageOptions {
@@ -27,6 +51,8 @@ export interface ParsedImageOptions {
 
 export interface ParsedResourceOptions {
     fullPage?: boolean
+    type?: ImageContentType | undefined
+    encoding?: ImageEncodingType | undefined
 }
 
 export interface ParsedRequest {
@@ -34,3 +60,9 @@ export interface ParsedRequest {
     imageOptions?: ParsedImageOptions
     resourceOptions?: ParsedResourceOptions
 }
+
+export const ImageContent = strToEnum(['jpeg', 'png'])
+export type ImageContentType = keyof typeof ImageContent
+
+export const ImageEncoding = strToEnum(['base64', 'binary'])
+export type ImageEncodingType = keyof typeof ImageEncoding

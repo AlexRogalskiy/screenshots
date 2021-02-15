@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import { existsSync, mkdirSync } from 'fs'
 import { join } from 'path'
+import _ from 'lodash'
 import { ImageLocations } from '../typings/types'
 
 export const toBase64ImageUrl = async (imgUrl): Promise<string> => {
@@ -35,6 +36,18 @@ export const toBoolean = (value): boolean => {
     )
 }
 
+export const omitNull = <T>(obj: T): T => {
+    // eslint-disable-next-line github/array-foreach
+    Object.keys(obj)
+        .filter(k => obj[k] === null || obj[k] === undefined)
+        .forEach(k => delete obj[k])
+    return obj
+}
+
+export const mergeProps = <T>(...obj: unknown[]): T => {
+    return _.mergeWith({}, ...obj, (o, s) => (_.value === null ? o : s))
+}
+
 export const toString = (str: string | string[]): string => {
     return Array.isArray(str) ? str[0] : str
 }
@@ -47,13 +60,13 @@ const objToString = (obj): string => {
     let str = ''
     for (const p in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, p)) {
-            str += `${p} => ${typeof obj[p] === 'object' ? `[${objToString(obj[p])}]` : `${+obj[p]},`}`
+            str += `${p} => ${typeof obj[p] === 'object' ? `[${objToString(obj[p])}]` : `${obj[p]},`}`
         }
     }
     return str
 }
 
-export const toInt = (str: string, defaultValue: number): number => {
+export const toInt = (str: string, defaultValue?: number): number => {
     try {
         return parseInt(str) || defaultValue
     } catch (e) {
@@ -75,4 +88,19 @@ export const createFilePath = (locations: ImageLocations): string => {
     }
 
     return join(path, fileName)
+}
+
+/**
+ * Utility function to create a K:V from a list of strings
+ * @param o initial input array to operate by
+ */
+export const strToEnum = <T extends string>(o: T[]): { [K in T]: K } => {
+    return o.reduce((res, key) => {
+        res[key] = key
+        return res
+    }, Object.create(null))
+}
+
+export const pluck = <T, K extends keyof T>(o: T, propertyNames: K[]): T[K][] => {
+    return propertyNames.map(n => o[n])
 }

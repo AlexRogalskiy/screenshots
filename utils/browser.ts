@@ -1,6 +1,7 @@
 import { BrowserOptions, ChromeArgOptions, LaunchOptions } from 'puppeteer'
-import { ImageOptions, ResourceOptions } from '../typings/types'
+import { ImageOptions, PageOptions, ResourceOptions } from '../typings/types'
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
 const browser = require('puppeteer')
 
 export default class BrowserSession {
@@ -21,11 +22,11 @@ export default class BrowserSession {
     async createScreenshot(
         url: string,
         imageOptions: ImageOptions,
-        resourceOptions: ResourceOptions
+        resourceOptions: ResourceOptions,
+        pageOptions: PageOptions
     ): Promise<Buffer | string | void> {
-        // set the size of the viewport, so our screenshot will have the desired size
         await this.page.setViewport(imageOptions)
-        await this.page.goto(url, { waitUntil: 'domcontentloaded' })
+        await this.page.goto(url, pageOptions)
         return await this.page.screenshot(resourceOptions)
     }
 

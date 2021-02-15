@@ -1,11 +1,11 @@
 import { ImageOptions, ParsedRequest, ResourceOptions } from '../typings/types'
 import BrowserSession from './browser'
-import { toFormatString } from './commons'
+import { mergeProps, toFormatString } from './commons'
 import { CONFIG } from './config'
 
 export async function screenshotRenderer(parsedRequest: ParsedRequest): Promise<Buffer | string | void> {
-    const imageOptions = { ...CONFIG.imageOptions, ...parsedRequest.imageOptions }
-    const resourceOptions = { ...CONFIG.resourceOptions, ...parsedRequest.resourceOptions }
+    const imageOptions: ImageOptions = mergeProps(CONFIG.imageOptions, parsedRequest.imageOptions)
+    const resourceOptions: ResourceOptions = mergeProps(CONFIG.resourceOptions, parsedRequest.resourceOptions)
 
     return await createScreenshot(parsedRequest.url, imageOptions, resourceOptions)
 }
@@ -27,8 +27,13 @@ const createScreenshot = async (
     )
 
     const browserSession = new BrowserSession()
-    await browserSession.setup()
-    const imageBuffer = await browserSession.createScreenshot(url, imageOptions, resourceOptions)
+    await browserSession.setup(CONFIG.browserOptions)
+    const imageBuffer = await browserSession.createScreenshot(
+        url,
+        imageOptions,
+        resourceOptions,
+        CONFIG.pageOptions
+    )
     await browserSession.teardown()
 
     return imageBuffer

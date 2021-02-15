@@ -1,21 +1,25 @@
 import { NowRequest, NowResponse, VercelResponse } from '@vercel/node/dist'
-import { toInt, toString, toBoolean } from '../utils/commons'
+import { toBoolean, toInt, toString } from '../utils/commons'
 import { screenshotRenderer } from '../utils/screenshot'
-import { CONFIG } from '../utils/config'
+import { ImageContent, ImageContentType, ImageEncoding, ImageEncodingType } from '../typings/types'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
         const url = toString(req.query.url)
+        const width = toInt(toString(req.query.width))
+        const height = toInt(toString(req.query.height))
+
         const fullPage = toBoolean(toString(req.query.fullPage))
-        const width = toInt(toString(req.query.width), CONFIG.imageOptions.width)
-        const height = toInt(toString(req.query.height), CONFIG.imageOptions.height)
+        const type: ImageContentType = ImageContent[toString(req.query.type)]
+        const encoding: ImageEncodingType = ImageEncoding[toString(req.query.encoding)]
+
         const imageOptions = { width, height }
-        const resourceOptions = { fullPage }
+        const resourceOptions = { fullPage, type, encoding }
 
         const screenshot = await screenshotRenderer({
             url,
             imageOptions,
-            resourceOptions
+            resourceOptions,
         })
 
         res.setHeader('Cache-Control', 'no-cache,max-age=0,no-store,s-maxage=0,proxy-revalidate')
@@ -28,7 +32,7 @@ export default async function render(req: NowRequest, res: NowResponse): Promise
         return res.send({
             status: 'Error',
             name: error.name,
-            message: error.message
+            message: error.message,
         })
     }
 }
