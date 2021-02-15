@@ -27,7 +27,10 @@ export default async function render(req: NowRequest, res: NowResponse): Promise
         res.setHeader('Pragma', 'no-cache')
         res.setHeader('Expires', '-1')
         res.setHeader('Content-type', `image/${notBlankOrElse(type, CONFIG.resourceOptions.type)}`)
-        res.setHeader('Content-transfer-encoding', `${notBlankOrElse(encoding, CONFIG.resourceOptions.encoding)}`)
+        res.setHeader(
+            'Content-transfer-encoding',
+            `${notBlankOrElse(encoding, CONFIG.resourceOptions.encoding)}`
+        )
         res.setHeader('X-Powered-By', 'Vercel')
 
         return res.send(screenshot)
