@@ -13,6 +13,15 @@ export const toBase64ImageUrl = async (imgUrl): Promise<string> => {
     ).toString('base64')}`
 }
 
+export const isValidUrl = (str: string): boolean => {
+    try {
+        new URL(str)
+        return true
+    } catch (e) {
+        return false
+    }
+}
+
 export const isNonEmptyString = (str: string): boolean => {
     return str && str.length > 0
 }
