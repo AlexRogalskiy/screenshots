@@ -1,5 +1,5 @@
 import { Browser, Page } from 'playwright-core'
-import { LaunchOptions } from 'playwright-chromium/types/types'
+import { chromium, LaunchOptions } from 'playwright-chromium'
 import { BrowserContext } from 'playwright-core/types/types'
 
 import { ImageOptions, PlayPageOptions, ResourceOptions } from '../typings/types'
@@ -7,7 +7,7 @@ import { mergeProps, separator, toBoolean, toFormatString } from './commons'
 import { CONFIG } from './config'
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
-const { chromium } = require('playwright-chromium')
+const chromium_browser = require('chromium')
 
 export default class PlaywrightSession {
     /**
@@ -31,10 +31,12 @@ export default class PlaywrightSession {
      * @param options initial input {@link LaunchOptions}
      */
     async setup(options?: LaunchOptions): Promise<void> {
-        const browserOptions: ImageOptions = mergeProps(
-            toBoolean(process.env.DEBUG) ? CONFIG.browserOptions.dev : CONFIG.browserOptions.prod,
+        const browserOptions: LaunchOptions = mergeProps(
+            toBoolean(process.env.CHROME_EMBEDDED) ? CONFIG.browserOptions.prod : CONFIG.browserOptions.dev,
             options
         )
+
+        browserOptions.executablePath = chromium_browser.path
 
         console.log(`\n>>> Browser options=${toFormatString(browserOptions)}`)
 

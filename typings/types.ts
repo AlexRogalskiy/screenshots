@@ -1,5 +1,5 @@
 import { BrowserOptions, ChromeArgOptions, LaunchOptions, PuppeteerLifeCycleEvent } from 'puppeteer'
-import { LaunchOptions as PlayLaunchOptions } from 'playwright-chromium/types/types'
+import { LaunchOptions as PlayLaunchOptions } from 'playwright-chromium'
 
 import { strToEnum } from '../utils/commons'
 
@@ -36,13 +36,16 @@ export interface ImageLocations {
 
 export interface ImageOptions {
     /**
-     * page width in pixels.
+     * Page width in pixels.
      */
     readonly width: number
     /**
-     * page height in pixels.
+     * Page height in pixels.
      */
     readonly height: number
+    /**
+     * Device scale factor.
+     */
     readonly deviceScaleFactor?: number
 }
 
@@ -100,84 +103,84 @@ export interface PlayPageOptions {
 
 export interface ResourceOptions {
     /**
-     * Enable/disable full page view port for screenshot
+     * Enable/disable full page view port for screenshot.
      */
     readonly fullPage?: boolean
     /**
-     * Screenshot image quality (0-100)
+     * Screenshot image quality (0-100).
      */
     readonly quality?: number
     /**
-     * Omit screenshot background
+     * Omit screenshot background.
      */
     readonly omitBackground?: boolean
     /**
-     * Image content type
+     * Image content type.
      */
     readonly type: ImageContentType
     /**
-     * Image content transfer encoding
+     * Image content transfer encoding.
      */
     readonly encoding: ImageEncodingType
 }
 
 export interface ConfigOptions {
     /**
-     * Location configuration options
+     * Location configuration options.
      */
     readonly locationOptions: ImageLocations
     /**
-     * Image configuration options
+     * Image configuration options.
      */
     readonly imageOptions: ImageOptions
     /**
-     * Resource configuration options
+     * Resource configuration options.
      */
     readonly resourceOptions: ResourceOptions
     /**
-     * Page configuration options
+     * Page configuration options.
      */
     readonly pageOptions?: PageOptions
     /**
-     * Play page configuration options
+     * Play page configuration options.
      */
     readonly playPageOptions?: PlayPageOptions
     /**
-     * Image clip configuration options
+     * Image clip configuration options.
      */
     readonly imageClipOptions?: ImageClipOptions
     /**
-     * Browser configuration options
+     * Browser configuration options.
      */
     readonly browserOptions: BrowserProfileOptions
     /**
-     * Play browser launch options
+     * Play browser launch options.
      */
     readonly launchOptions: PlayLaunchOptions
 }
 
 export interface ParsedImageOptions {
     /**
-     * Parsed image width in pixels
+     * Parsed image width in pixels.
      */
     width?: number
     /**
-     * Parsed image height in pixels
+     * Parsed image height in pixels.
      */
     height?: number
 }
 
 export interface ParsedResourceOptions {
     /**
-     * Parsed image full-page viewport support
+     * Parsed image full-page viewport support.
      */
     fullPage?: boolean
     /**
-     * Parser image content type
+     * Parser image content type.
      */
     type?: ImageContentType | undefined
     /**
-     * Parsed image encoding type
+     * Parsed image encoding type.
      */
     encoding?: ImageEncodingType | undefined
 }
@@ -202,19 +205,19 @@ export interface ParsedPlayPageOptions {
 
 export interface ParsedRequest {
     /**
-     * Parsed image url
+     * Parsed image url.
      */
     url: string
     /**
-     * Parsed image options
+     * Parsed image options.
      */
     imageOptions?: ParsedImageOptions
     /**
-     * Parsed resource options
+     * Parsed resource options.
      */
     resourceOptions?: ParsedResourceOptions
     /**
-     * Parsed page options
+     * Parsed page options.
      */
     pageOptions?: ParsedPlayPageOptions
 }

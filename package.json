@@ -5,16 +5,18 @@
     "main": "index.js",
     "license": "GPL-3.0",
     "scripts": {
-        "deploy:dev": "npm run setup:chrome && env-cmd -e prod vercel",
-        "deploy:prod": "npm run setup:chrome && env-cmd -e prod vercel --prod",
-        "develop": "env-cmd -e prod vercel dev",
-        "setup:chrome": "unzip ./node_modules/puppeteer/.local-chromium/chrome-linux.zip",
+        "deploy:dev": "env-cmd -e prod vercel",
+        "deploy:prod": "env-cmd -e prod vercel --prod",
+        "develop": "env-cmd -e dev vercel dev",
+        "postinstall": "node install-chrome-browser.js",
+        "chrome:installer": "npm install -g chromium",
         "lint": "eslint --fix .",
         "test": "TZ=utc jest",
         "test:coverage": "jest --collectCoverage",
         "test:watch": "jest --watch"
     },
     "dependencies": {
+        "chromium": "^3.0.2",
         "env-cmd": "^10.1.0",
         "isomorphic-unfetch": "^3.1.0",
         "jsdom": "^16.4.0",
@@ -25,7 +27,7 @@
     },
     "devDependencies": {
         "@types/jest": "^26.0.20",
-        "@types/lodash": "^4.14.168",
+        "@types/lodash.mergewith": "^4.6.6",
         "@types/prettier": "^2.1.5",
         "@typescript-eslint/eslint-plugin": "^4.15.0",
         "@typescript-eslint/parser": "^4.15.0",
@@ -52,7 +54,7 @@
         "access": "public"
     },
     "engines": {
-        "node": ">= 8.0.0"
+        "node": ">= 10.x"
     },
     "keywords": [
         "github-actions",

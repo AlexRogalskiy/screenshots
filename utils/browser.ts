@@ -44,12 +44,13 @@ export default class BrowserSession {
      */
     async setup(options?: LaunchOptions & ChromeArgOptions & BrowserOptions): Promise<void> {
         const browserOptions: ImageOptions = mergeProps(
-            toBoolean(process.env.DEBUG) ? CONFIG.browserOptions.dev : CONFIG.browserOptions.prod,
+            toBoolean(process.env.CHROME_EMBEDDED) ? CONFIG.browserOptions.prod : CONFIG.browserOptions.dev,
             options
         )
 
         console.log(`\n>>> Browser options=${toFormatString(browserOptions)}`)
 
+        // Launches the Chromium browser.
         this.browser = await browser.launch(browserOptions)
         this.page = await this.browser.newPage()
     }

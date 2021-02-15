@@ -48,6 +48,7 @@ export const notBlankOrElse = (str: string, defaultValue: string): string => {
 
 export const toBoolean = (value: unknown): boolean => {
     return (
+        /true/i.test('true') ||
         value === true ||
         value === 'true' ||
         value === 1 ||
@@ -66,7 +67,7 @@ export const omitNull = <T>(obj: T): T => {
 }
 
 export const mergeProps = <T>(...obj: unknown[]): T => {
-    return _.mergeWith({}, ...obj, (o, s) => (_.isNull(_._.value) ? o : s))
+    return _.mergeWith({}, ...obj, (o, s) => (_.isNull(s) ? o : s))
 }
 
 export const toString = (str: string | string[]): string => {
