@@ -5,6 +5,7 @@ import { CONFIG } from './config'
 
 export async function screenshotRenderer(parsedRequest: ParsedRequest): Promise<Buffer | string | void> {
     const imageOptions: ImageOptions = mergeProps(CONFIG.imageOptions, parsedRequest.imageOptions)
+    console.log(parsedRequest.imageOptions)
     const resourceOptions: ResourceOptions = mergeProps(CONFIG.resourceOptions, parsedRequest.resourceOptions)
     const pageOptions: PlayPageOptions = mergeProps(CONFIG.playPageOptions, parsedRequest.pageOptions)
 
@@ -21,8 +22,8 @@ const createScreenshot = async (
     console.log(
         `\n>>> Generating screenshot with parameters:
         url=${url},
-        name=${file}
-        imageOptions=${toFormatString(imageOptions)}
+        name=${file},
+        imageOptions=${toFormatString(imageOptions)},
         resourceOptions=${toFormatString(resourceOptions)}
         `
     )

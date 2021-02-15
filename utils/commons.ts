@@ -66,7 +66,7 @@ export const omitNull = <T>(obj: T): T => {
 }
 
 export const mergeProps = <T>(...obj: unknown[]): T => {
-    return _.mergeWith({}, ...obj, (o, s) => (_._.value === undefined ? o : s))
+    return _.mergeWith({}, ...obj, (o, s) => (_.isNull(_._.value) ? o : s))
 }
 
 export const toString = (str: string | string[]): string => {
@@ -87,11 +87,11 @@ const objToString = (obj): string => {
     return str
 }
 
-export const toInt = (str: string): number => {
+export const toInt = (str: string, defaultValue?: number): number | undefined => {
     try {
-        return parseInt(str)
+        return parseInt(str) || defaultValue
     } catch (e) {
-        throw e
+        return defaultValue
     }
 }
 
