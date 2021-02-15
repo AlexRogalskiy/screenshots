@@ -27,7 +27,7 @@ const createScreenshot = async (
     )
 
     const browserSession = new BrowserSession()
-    await browserSession.setup(process.env.DEBUG ? CONFIG.browserOptions : {})
+    await browserSession.setup()
     const imageBuffer = await browserSession.createScreenshot(
         url,
         imageOptions,

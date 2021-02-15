@@ -1,6 +1,16 @@
 import { BrowserOptions, ChromeArgOptions, LaunchOptions, PuppeteerLifeCycleEvent } from 'puppeteer'
 import { strToEnum } from '../utils/commons'
 
+// eslint-disable-next-line no-shadow
+export enum BrowserProfile {
+    dev = 'dev',
+    prod = 'prod',
+}
+
+export type BrowserProfileOptions = {
+    [K in BrowserProfile]: LaunchOptions & ChromeArgOptions & BrowserOptions
+}
+
 export interface ImageLocations {
     readonly name: string
     readonly path: string
@@ -41,7 +51,7 @@ export interface ConfigOptions {
     readonly resourceOptions?: ResourceOptions
     readonly pageOptions?: PageOptions
     readonly imageClipOptions?: ImageClipOptions
-    readonly browserOptions?: LaunchOptions & ChromeArgOptions & BrowserOptions
+    readonly browserOptions: BrowserProfileOptions
 }
 
 export interface ParsedImageOptions {

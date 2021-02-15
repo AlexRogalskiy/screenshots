@@ -5,15 +5,16 @@
     "main": "index.js",
     "license": "GPL-3.0",
     "scripts": {
-        "deploy:dev": "vercel",
-        "deploy:prod": "vercel --prod",
-        "develop": "vercel dev",
+        "deploy:dev": "env-cmd -e prod vercel",
+        "deploy:prod": "nv-cmd -e prod vercel --prod",
+        "develop": "env-cmd -e dev vercel dev",
         "lint": "eslint --fix .",
         "test": "TZ=utc jest",
         "test:coverage": "jest --collectCoverage",
         "test:watch": "jest --watch"
     },
     "dependencies": {
+        "env-cmd": "^10.1.0",
         "isomorphic-unfetch": "^3.1.0",
         "jsdom": "^16.4.0",
         "lodash": "^4.17.20",

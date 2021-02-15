@@ -1,6 +1,7 @@
 import { BrowserOptions, ChromeArgOptions, LaunchOptions } from 'puppeteer'
 import { ImageOptions, PageOptions, ResourceOptions } from '../typings/types'
-import { toFormatString } from './commons'
+import { mergeProps, toBoolean, toFormatString } from './commons'
+import { CONFIG } from './config'
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
 const browser = require('puppeteer')
@@ -13,9 +14,14 @@ export default class BrowserSession {
      * Obtains browser and page object on bootstrap
      */
     async setup(options?: LaunchOptions & ChromeArgOptions & BrowserOptions): Promise<void> {
-        console.log(`Browser options=${toFormatString(options)}`)
+        const browserOptions: ImageOptions = mergeProps(
+            toBoolean(process.env.DEBUG) ? CONFIG.browserOptions.dev : CONFIG.browserOptions.prod,
+            options
+        )
 
-        this.browser = await browser.launch(options)
+        console.log(`Browser options=${toFormatString(browserOptions)}`)
+
+        this.browser = await browser.launch(browserOptions)
         this.page = await this.browser.newPage()
     }
 
