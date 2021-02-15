@@ -2,15 +2,20 @@ import fetch from 'isomorphic-unfetch'
 import { existsSync, mkdirSync } from 'fs'
 import { join } from 'path'
 import _ from 'lodash'
+
 import { ImageLocations } from '../typings/types'
 
-export const toBase64ImageUrl = async (imgUrl): Promise<string> => {
+export const toBase64ImageUrl = async (imgUrl: string): Promise<string> => {
     const fetchImageUrl = await fetch(imgUrl)
     const responseArrBuffer = await fetchImageUrl.arrayBuffer()
 
     return `data:${fetchImageUrl.headers.get('Content-Type') || 'image/png'};base64,${Buffer.from(
         responseArrBuffer
     ).toString('base64')}`
+}
+
+export const separator = (num: number, delim = '='): string => {
+    return Array(num).join(delim)
 }
 
 export const isValidUrl = (str: string): boolean => {
@@ -32,7 +37,7 @@ export const requireValidUrl = (str: string): string => {
 }
 
 export const isNonEmptyString = (str: string): boolean => {
-    return str && str.length > 0
+    return str !== undefined && str !== null && str.length > 0
 }
 
 export const isBlankString = (str: string): boolean => {
@@ -43,7 +48,7 @@ export const notBlankOrElse = (str: string, defaultValue: string): string => {
     return isBlankString(str) ? defaultValue : str
 }
 
-export const toBoolean = (value): boolean => {
+export const toBoolean = (value: unknown): boolean => {
     return (
         value === true ||
         value === 'true' ||
@@ -84,11 +89,11 @@ const objToString = (obj): string => {
     return str
 }
 
-export const toInt = (str: string, defaultValue?: number): number => {
+export const toInt = (str: string): number => {
     try {
-        return parseInt(str) || defaultValue
+        return parseInt(str)
     } catch (e) {
-        return defaultValue
+        throw e
     }
 }
 

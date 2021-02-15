@@ -35,11 +35,11 @@
         "pretty": true,
         "inlineSourceMap": false,
         "inlineSources": false,
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "noImplicitThis": true,
         "alwaysStrict": true,
         "strictNullChecks": true,
-        "strictFunctionTypes": true
+        "strictFunctionTypes": false
     },
     "exclude": [
         "node_modules",
