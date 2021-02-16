@@ -8,22 +8,22 @@
         "deploy:dev": "env-cmd -e prod vercel",
         "deploy:prod": "env-cmd -e prod vercel --prod",
         "develop": "env-cmd -e dev vercel dev",
-        "postinstall": "node install-chrome-browser.js",
-        "chrome:installer": "npm install -g chromium",
-        "lint": "eslint --fix .",
+        "chrome:install": "node install-chrome-browser.js",
+        "chrome:browser": "npm install -g chromium",
+        "lint": "eslint --fix --quiet -f codeframe --ext js,ts .",
         "test": "TZ=utc jest",
         "test:coverage": "jest --collectCoverage",
         "test:watch": "jest --watch"
     },
     "dependencies": {
-        "chromium": "^3.0.2",
+        "chrome-aws-lambda": "^7.0.0",
         "env-cmd": "^10.1.0",
         "isomorphic-unfetch": "^3.1.0",
         "jsdom": "^16.4.0",
         "lodash": "^4.17.20",
         "playwright-chromium": "^1.8.1",
         "playwright-core": "^1.8.1",
-        "puppeteer": "^7.1.0"
+        "puppeteer-core": "^7.0.0"
     },
     "devDependencies": {
         "@types/jest": "^26.0.20",

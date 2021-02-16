@@ -30,12 +30,13 @@ export const CONFIG: ConfigOptions = {
                 '--disable-web-security',
             ],
             ignoreDefaultArgs: ['--disable-extensions'],
+            ignoreHTTPSErrors: true,
         },
         prod: {
             headless: true,
             slowMo: 40,
             devtools: false,
-            executablePath: '/usr/bin/chromium',
+            executablePath: 'node_modules/puppeteer/.local-chromium/linux-848005/chrome-linux/chrome',
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
@@ -45,6 +46,8 @@ export const CONFIG: ConfigOptions = {
                 '--hide-scrollbars',
                 '--disable-web-security',
             ],
+            ignoreDefaultArgs: ['--disable-extensions'],
+            ignoreHTTPSErrors: true,
         },
     },
     pageOptions: {

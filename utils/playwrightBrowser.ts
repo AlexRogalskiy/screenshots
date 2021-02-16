@@ -6,10 +6,7 @@ import { ImageOptions, PlayPageOptions, ResourceOptions } from '../typings/types
 import { mergeProps, separator, toBoolean, toFormatString } from './commons'
 import { CONFIG } from './config'
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
-const chromium_browser = require('chromium')
-
-export default class PlaywrightSession {
+export default class PlaywrightBrowserSession {
     /**
      * Current chromium browser instance
      * @private
@@ -35,8 +32,6 @@ export default class PlaywrightSession {
             toBoolean(process.env.CHROME_EMBEDDED) ? CONFIG.browserOptions.prod : CONFIG.browserOptions.dev,
             options
         )
-
-        browserOptions.executablePath = chromium_browser.path
 
         console.log(`\n>>> Browser options=${toFormatString(browserOptions)}`)
 

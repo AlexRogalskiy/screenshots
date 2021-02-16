@@ -1,5 +1,6 @@
 import { ImageOptions, ParsedRequest, PlayPageOptions, ResourceOptions } from '../typings/types'
-import PlaywrightSession from './playwright'
+// import PlaywrightBrowserSession from './playwrightBrowser'
+import AwsBrowserSession from './awsBrowser'
 import { mergeProps, toFormatString } from './commons'
 import { CONFIG } from './config'
 
@@ -27,7 +28,7 @@ const createScreenshot = async (
         `
     )
 
-    const browserSession = new PlaywrightSession()
+    const browserSession = new AwsBrowserSession()
     try {
         await browserSession.setup()
 

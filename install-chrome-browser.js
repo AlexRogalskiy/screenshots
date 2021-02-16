@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
 const { execSync } = require('child_process')
 
-console.log('Installing chrome browser installer...')
+console.log('Running chrome browser installer...')
 
 try {
-    execSync('npm run chrome:installer')
+    execSync('npm run chrome:browser')
 } catch (e) {
     console.error(e)
 }
