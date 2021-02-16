@@ -1,8 +1,5 @@
 # _Styled screenshots_
 
-![type definitions](https://img.shields.io/npm/types/typescript?style=flat-square)
-![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
-
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/AlexRogalskiy/screenshots)
 ![GitHub Release Date](https://img.shields.io/github/release-date/AlexRogalskiy/screenshots)
 ![Lines of code](https://tokei.rs/b1/github/AlexRogalskiy/screenshots?category=lines)
@@ -20,11 +17,12 @@
 [![Issue](https://img.shields.io/github/issues/alexrogalskiy/screenshots)](https://img.shields.io/github/issues/alexrogalskiy/screenshots)
 [![Forks](https://img.shields.io/github/forks/alexrogalskiy/screenshots)](https://img.shields.io/github/forks/alexrogalskiy/screenshots)
 [![Stars](https://img.shields.io/github/stars/alexrogalskiy/screenshots)](https://img.shields.io/github/stars/alexrogalskiy/screenshots)
+![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ed7702f8cf28917829fa/maintainability)](https://codeclimate.com/github/AlexRogalskiy/screenshots/maintainability)
 
 [![Dependabot](https://img.shields.io/badge/dependabot-enabled-1f8ceb.svg?style=flat-square)](https://dependabot.com/)
 [![NewReleases](https://newreleases.io/badge.svg)](https://newreleases.io/github/AlexRogalskiy/screenshots)
-[![Hits-of-Code](https://hitsofcode.com/github/alexrogalskiy/screenshots?branch=master)](https://hitsofcode.com/github/alexrogalskiy/screenshots?branch=master/view?branch=master)
+[![Hits-of-Code](https://hitsofcode.com/github/AlexRogalskiy/screenshots)](https://hitsofcode.com/github/AlexRogalskiy/screenshots/view)
 [![ComVer](https://img.shields.io/badge/ComVer-compliant-brightgreen.svg)][tags]
 
 ## _Table of contents_
@@ -141,9 +139,9 @@ Like _**Styled Screenshots**_ ? Consider buying me a coffee :\)
 
 ---
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com/)
-[![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://forthebadge.com/)
-[![forthebadge](https://img.shields.io/badge/powered-by%20vercel-7116FB.svg?logo=vercel&style=for-the-badge)](https://vercel.com/)
+[![forthebadge](https://img.shields.io/badge/made%20with-%20typescript-C1282D.svg?logo=typescript&style=for-the-badge)](https://www.typescriptlang.org/)
+[![forthebadge](https://img.shields.io/badge/powered%20by-%20vercel-7116FB.svg?logo=vercel&style=for-the-badge)](https://vercel.com/)
+[![forthebadge](https://img.shields.io/badge/build%20with-%20%E2%9D%A4-B6FF9B.svg?logo=heart&style=for-the-badge)](https://forthebadge.com/)
 
   [repo]:           https://github.com/AlexRogalskiy/screenshots
   [tags]:           https://github.com/AlexRogalskiy/screenshots/tags
