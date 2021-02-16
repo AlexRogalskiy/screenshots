@@ -53,7 +53,7 @@
         "access": "public"
     },
     "engines": {
-        "node": ">= 10.x"
+        "node": ">= v10.23.3"
     },
     "keywords": [
         "github-actions",
