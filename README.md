@@ -86,12 +86,12 @@ There are several options you can use from the list:
 This is example of using _**Styled Screenshots**_:
 
 ```
-![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://musicbox.ru&width=400&height=400)
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.brainyquote.com/quote_of_the_day&width=400&height=400)
 ```
 
 Result:
 
-![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://musicbox.ru&width=400&height=400)
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.brainyquote.com/quote_of_the_day&width=400&height=400)
 
 ## _Visitor stats_
 
@@ -148,6 +148,7 @@ Like _**Styled Screenshots**_ ? Consider buying me a coffee :\)
 [![forthebadge](https://img.shields.io/badge/made%20with-%20typescript-C1282D.svg?logo=typescript&style=for-the-badge)](https://www.typescriptlang.org/)
 [![forthebadge](https://img.shields.io/badge/powered%20by-%20vercel-7116FB.svg?logo=vercel&style=for-the-badge)](https://vercel.com/)
 [![forthebadge](https://img.shields.io/badge/build%20with-%20%E2%9D%A4-B6FF9B.svg?logo=heart&style=for-the-badge)](https://forthebadge.com/)
+
 
   [repo]:           https://github.com/AlexRogalskiy/screenshots
   [tags]:           https://github.com/AlexRogalskiy/screenshots/tags
