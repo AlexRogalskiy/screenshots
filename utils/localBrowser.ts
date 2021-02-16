@@ -51,6 +51,7 @@ export default class LocalBrowserSession {
     ): Promise<Buffer | string | void> {
         await this.page.setViewport(imageOptions)
         await this.page.goto(url, pageOptions)
+
         return await this.page.screenshot(resourceOptions)
     }
 
@@ -59,6 +60,7 @@ export default class LocalBrowserSession {
      */
     async teardown(): Promise<void> {
         console.log('Closing local browser session...')
+
         if (this.page) await this.page.close()
         if (this.browser) await this.browser.close()
     }

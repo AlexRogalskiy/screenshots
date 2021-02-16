@@ -1,10 +1,20 @@
 # _Styled screenshots_
 
-<div align="center">
-<p>Create your styled screenshots dynamically</p>
-
 ![type definitions](https://img.shields.io/npm/types/typescript?style=flat-square)
 ![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/AlexRogalskiy/screenshots)
+![GitHub Release Date](https://img.shields.io/github/release-date/AlexRogalskiy/screenshots)
+![Lines of code](https://tokei.rs/b1/github/AlexRogalskiy/screenshots?category=lines)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/AlexRogalskiy/screenshots)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/AlexRogalskiy/screenshots)
+![GitHub repo size](https://img.shields.io/github/repo-size/AlexRogalskiy/screenshots)
+![GitHub last commit](https://img.shields.io/github/last-commit/AlexRogalskiy/screenshots)
+![GitHub](https://img.shields.io/github/license/AlexRogalskiy/screenshots)
+![GitHub language count](https://img.shields.io/github/languages/count/AlexRogalskiy/screenshots)
+![GitHub search hit counter](https://img.shields.io/github/search/AlexRogalskiy/screenshots/goto)
+![GitHub Repository branches](https://badgen.net/github/branches/AlexRogalskiy/screenshots)
+![GitHub Repository dependents](https://badgen.net/github/dependents-repo/AlexRogalskiy/screenshots)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/alexrogalskiy/screenshots/master/LICENSE?token=AH44ZFH7IF2KSEDK7LSIW3C7YOFYC)
 [![Issue](https://img.shields.io/github/issues/alexrogalskiy/screenshots)](https://img.shields.io/github/issues/alexrogalskiy/screenshots)
@@ -12,7 +22,10 @@
 [![Stars](https://img.shields.io/github/stars/alexrogalskiy/screenshots)](https://img.shields.io/github/stars/alexrogalskiy/screenshots)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ed7702f8cf28917829fa/maintainability)](https://codeclimate.com/github/AlexRogalskiy/screenshots/maintainability)
 
-</div>
+[![Dependabot](https://img.shields.io/badge/dependabot-enabled-1f8ceb.svg?style=flat-square)](https://dependabot.com/)
+[![NewReleases](https://newreleases.io/badge.svg)](https://newreleases.io/github/AlexRogalskiy/screenshots)
+[![Hits-of-Code](https://hitsofcode.com/github/alexrogalskiy/screenshots?branch=master)](https://hitsofcode.com/github/alexrogalskiy/screenshots?branch=master/view?branch=master)
+[![ComVer](https://img.shields.io/badge/ComVer-compliant-brightgreen.svg)][tags]
 
 ## _Table of contents_
 
@@ -23,22 +36,34 @@
       * [<em>How to use</em>](#how-to-use)
       * [<em>Example</em>](#example)
       * [<em>Contribution</em>](#contribution)
-
-<!-- Added by: runner, at: Mon Feb 15 03:14:13 UTC 2021 -->
-
 <!--te-->
 
 ## _Description_
 
-Screenshots is a serverless dynamically function that generates styled graph images based on SVG (Scalable Vector Graphics).
-For the tech stack, _**Styled Screenshots**_ using Typescript and serverless function from Vercel as this project had been deployed on Vercel stack.
+<p align="center" style="text-align:center;">
+    <a href="https://www.typescriptlang.org/">
+        <img src="https://img.shields.io/badge/typescript%20-%23007ACC.svg?&logo=typescript&logoColor=white" alt="TypeScript" />
+    </a>
+    <a href="https://www.repostatus.org/#active">
+        <img src="https://img.shields.io/badge/Project%20Status-Active-brightgreen" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." />
+    </a>
+    <a href="https://badges.pufler.dev">
+        <img src="https://badges.pufler.dev/created/AlexRogalskiy/screenshots" alt="Project created status" />
+    </a>
+    <a href="https://badges.pufler.dev">
+        <img src="https://badges.pufler.dev/updated/AlexRogalskiy/screenshots" alt="Project updated status" />
+    </a>
+</p>
+
+_**Styled Screenshots**_ is a serverless function that generates dynamically styled graph images based on SVG (Scalable Vector Graphics).
+For the tech stack, _**Styled Screenshots**_ using Typescript and serverless function from Vercel stack.
 
 ## _How to use_
 
 It's simple, you can copy paste this markdown content, like this one:
 
 ```
-![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?category=[category])
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=[url]&width=[width]&height=[height]&fullPage=[fullPage]&type=[type]&encoding=[encoding])
 ```
 
 There are several options you can use from the list:
@@ -57,20 +82,73 @@ There are several options you can use from the list:
 This is example of using _**Styled Screenshots**_:
 
 ```
-![Styled Screenshots](https://styled-screenshots.vercel.app/api?url=https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/0.json&width=400&height=400)
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://musicbox.ru&width=400&height=400)
 ```
 
 Result:
 
-![Styled Screenshots](https://styled-screenshots.vercel.app/api?url=https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/0.json&width=400&height=400)
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://musicbox.ru&width=400&height=400)
+
+## _Visitor stats_
+
+[![GitHub page hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAlexRogalskiy%2Fscreenshots&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
+
+![GitHub stars](https://img.shields.io/github/stars/AlexRogalskiy/screenshots?style=social)
+![GitHub forks](https://img.shields.io/github/forks/AlexRogalskiy/screenshots?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/AlexRogalskiy/screenshots?style=social)
+
+## _Licensing_
+
+_**Styled Screenshots**_ is distributed under LGPL version 3 or later, [[License](https://github.com/AlexRogalskiy/screenshots/blob/master/LICENSE)].
+LGPLv3 is additional permissions on top of GPLv3.
+
+![license](https://user-images.githubusercontent.com/19885116/48661948-6cf97e80-ea7a-11e8-97e7-b45332a13e49.png)
+
+## _Authors_
+
+_**Styled Screenshots**_ is maintained by the following GitHub team-members:
+
+* [![Author](https://img.shields.io/badge/author-AlexRogalskiy-FB8F0A)](https://github.com/AlexRogalskiy)
+
+with community support please contact with us if you have some question or proposition.
+
+## _Versioning_
+
+The project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository][tags].
 
 ## _Contribution_
 
-Want to make this project better? You can contribute this project, I am very open if there are contributions to this project.
+[![Contributors Display](https://badges.pufler.dev/contributors/AlexRogalskiy/screenshots?size=50&padding=5&bots=true)](https://badges.pufler.dev)
+
+Please read [CONTRIBUTING.md](https://github.com/AlexRogalskiy/screenshots/blob/master/.github/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+![Github contributors](https://img.shields.io/github/all-contributors/AlexRogalskiy/screenshots)
+
+See also the list of [contributors][contributors] who participated in this project.
+
+## _Acknowledgement_
+
+[![Stargazers repo roster for @AlexRogalskiy/screenshots](https://reporoster.com/stars/AlexRogalskiy/screenshots)][stars]
+
+## _Development Support_
+
+Like _**Styled Screenshots**_ ? Consider buying me a coffee :\)
+
+[![Become a Patron](https://img.shields.io/badge/Become_Patron-Support_me_on_Patreon-blue.svg?style=flat-square&logo=patreon&color=e64413)](https://www.patreon.com/alexrogalskiy)
+[![Buy Me A Coffee](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellow.svg?logo=buy%20me%20a%20coffee)](https://www.buymeacoffee.com/AlexRogalskiy)
+[![KoFi](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellow.svg?logo=ko-fi)](https://ko-fi.com/alexrogalskiy)
 
 ---
 
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
-![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com/)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://forthebadge.com/)
+[![forthebadge](https://img.shields.io/badge/powered-by%20vercel-7116FB.svg?logo=vercel&style=for-the-badge)](https://vercel.com/)
 
-Powered by Typescript and Vercel. Code licensed under GPL-3.0 license.
+  [repo]:           https://github.com/AlexRogalskiy/screenshots
+  [tags]:           https://github.com/AlexRogalskiy/screenshots/tags
+  [issues]:         https://github.com/AlexRogalskiy/screenshots/issues
+  [pulls]:          https://github.com/AlexRogalskiy/screenshots/pulls
+  [wiki]:           https://github.com/AlexRogalskiy/screenshots/wiki
+  [stars]:          https://github.com/AlexRogalskiy/screenshots/stargazers
+  [contributors]:   https://github.com/AlexRogalskiy/screenshots/graphs/contributors

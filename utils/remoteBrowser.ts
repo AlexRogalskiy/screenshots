@@ -7,6 +7,31 @@ import { CONFIG } from './config'
 
 export default class RemoteBrowserSession {
     /**
+     * Obtains default chromium browser options
+     * @private
+     */
+    private static async getBrowserOptions(): Promise<LaunchOptions & ChromeArgOptions & BrowserOptions> {
+        return {
+            args: [
+                ...chromium.args,
+                '--hide-scrollbars',
+                '--disable-web-security',
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--headless',
+                '--disable-gpu',
+                '--disable-dev-shm-usage',
+                '--hide-scrollbars',
+                '--disable-web-security',
+            ],
+            defaultViewport: chromium.defaultViewport,
+            executablePath: await chromium.executablePath,
+            headless: true,
+            ignoreHTTPSErrors: true,
+        }
+    }
+
+    /**
      * Current chromium browser instance
      * @private
      */
@@ -24,7 +49,7 @@ export default class RemoteBrowserSession {
     async setup(options?: LaunchOptions & ChromeArgOptions & BrowserOptions): Promise<void> {
         const browserOptions: LaunchOptions & ChromeArgOptions & BrowserOptions = mergeProps(
             CONFIG.browserOptions.prod,
-            chromium,
+            await RemoteBrowserSession.getBrowserOptions(),
             options
         )
 
@@ -50,6 +75,7 @@ export default class RemoteBrowserSession {
     ): Promise<Buffer | string | void> {
         await this.page.setViewport(imageOptions)
         await this.page.goto(url, pageOptions)
+
         return await this.page.screenshot(resourceOptions)
     }
 
@@ -58,6 +84,7 @@ export default class RemoteBrowserSession {
      */
     async teardown(): Promise<void> {
         console.log('Closing remote browser session...')
+
         if (this.page) await this.page.close()
         if (this.browser) await this.browser.close()
     }
