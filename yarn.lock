@@ -3940,6 +3940,24 @@
     "unbzip2-stream" "^1.3.3"
     "ws" "^7.2.3"
 
+"puppeteer@^7.1.0":
+  "integrity" "sha512-lqOLzqCKdh7yUAHvK6LxgOpQrL8Bv1/jvS8MLDXxcNms2rlM3E8p/Wlwc7efbRZ0twxTzUeqjN5EqrTwxOwc9g=="
+  "resolved" "https://registry.npmjs.org/puppeteer/-/puppeteer-7.1.0.tgz"
+  "version" "7.1.0"
+  dependencies:
+    "debug" "^4.1.0"
+    "devtools-protocol" "0.0.847576"
+    "extract-zip" "^2.0.0"
+    "https-proxy-agent" "^5.0.0"
+    "node-fetch" "^2.6.1"
+    "pkg-dir" "^4.2.0"
+    "progress" "^2.0.1"
+    "proxy-from-env" "^1.1.0"
+    "rimraf" "^3.0.2"
+    "tar-fs" "^2.0.0"
+    "unbzip2-stream" "^1.3.3"
+    "ws" "^7.2.3"
+
 "qs@~6.5.2":
   "integrity" "sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA=="
   "resolved" "https://registry.npmjs.org/qs/-/qs-6.5.2.tgz"

@@ -1,10 +1,11 @@
 import chromium from 'chrome-aws-lambda'
+import { BrowserOptions, ChromeArgOptions, LaunchOptions } from 'puppeteer-core'
 
 import { ImageOptions, PageOptions, ResourceOptions } from '../typings/types'
-import { mergeProps, toBoolean, toFormatString } from './commons'
+import { mergeProps, toFormatString } from './commons'
 import { CONFIG } from './config'
 
-export default class AwsBrowserSession {
+export default class RemoteBrowserSession {
     /**
      * Current chromium browser instance
      * @private
@@ -20,33 +21,17 @@ export default class AwsBrowserSession {
      * Obtains browser and page object on bootstrap
      * @param options initial input
      */
-    async setup(options?): Promise<void> {
-        const browserOptions = mergeProps(
-            toBoolean(process.env.CHROME_EMBEDDED) ? CONFIG.browserOptions.prod : CONFIG.browserOptions.dev,
+    async setup(options?: LaunchOptions & ChromeArgOptions & BrowserOptions): Promise<void> {
+        const browserOptions: LaunchOptions & ChromeArgOptions & BrowserOptions = mergeProps(
+            CONFIG.browserOptions.prod,
+            chromium,
             options
         )
 
         console.log(`\n>>> Browser options=${toFormatString(browserOptions)}`)
 
         // Launches the Chromium browser.
-        this.browser = await chromium.puppeteer.launch({
-            args: [
-                ...chromium.args,
-                '--hide-scrollbars',
-                '--disable-web-security',
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--headless',
-                '--disable-gpu',
-                '--disable-dev-shm-usage',
-                '--hide-scrollbars',
-                '--disable-web-security',
-            ],
-            defaultViewport: chromium.defaultViewport,
-            executablePath: await chromium.executablePath,
-            headless: true,
-            ignoreHTTPSErrors: true,
-        })
+        this.browser = await chromium.puppeteer.launch(browserOptions)
         this.page = await this.browser.newPage()
     }
 
@@ -72,6 +57,7 @@ export default class AwsBrowserSession {
      * Closes browser session on teardown
      */
     async teardown(): Promise<void> {
+        console.log('Closing remote browser session...')
         if (this.page) await this.page.close()
         if (this.browser) await this.browser.close()
     }

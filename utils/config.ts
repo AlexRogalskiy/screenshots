@@ -36,8 +36,9 @@ export const CONFIG: ConfigOptions = {
             headless: true,
             slowMo: 40,
             devtools: false,
-            executablePath: 'node_modules/puppeteer/.local-chromium/linux-848005/chrome-linux/chrome',
             args: [
+                '--hide-scrollbars',
+                '--disable-web-security',
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
                 '--headless',

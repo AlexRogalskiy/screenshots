@@ -1,13 +1,13 @@
-import { ImageOptions, ParsedRequest, PlayPageOptions, ResourceOptions } from '../typings/types'
-// import PlaywrightBrowserSession from './playwrightBrowser'
-import AwsBrowserSession from './awsBrowser'
+import { ImageOptions, PageOptions, ParsedRequest, ResourceOptions } from '../typings/types'
+import RemoteBrowserSession from './remoteBrowser'
+import LocalBrowserSession from './localBrowser'
 import { mergeProps, toFormatString } from './commons'
 import { CONFIG } from './config'
 
 export async function screenshotRenderer(parsedRequest: ParsedRequest): Promise<Buffer | string | void> {
     const imageOptions: ImageOptions = mergeProps(CONFIG.imageOptions, parsedRequest.imageOptions)
     const resourceOptions: ResourceOptions = mergeProps(CONFIG.resourceOptions, parsedRequest.resourceOptions)
-    const pageOptions: PlayPageOptions = mergeProps(CONFIG.playPageOptions, parsedRequest.pageOptions)
+    const pageOptions: PageOptions = mergeProps(CONFIG.playPageOptions, parsedRequest.pageOptions)
 
     return await createScreenshot(parsedRequest.url, imageOptions, resourceOptions, pageOptions)
 }
@@ -16,7 +16,7 @@ const createScreenshot = async (
     url: string,
     imageOptions: ImageOptions,
     resourceOptions: ResourceOptions,
-    pageOptions: PlayPageOptions,
+    pageOptions: PageOptions,
     file?: string
 ): Promise<Buffer | string | void> => {
     console.log(
@@ -28,13 +28,15 @@ const createScreenshot = async (
         `
     )
 
-    const browserSession = new AwsBrowserSession()
+    const browserSession = process.env.AWS_LAMBDA_FUNCTION_VERSION
+        ? new RemoteBrowserSession()
+        : new LocalBrowserSession()
     try {
         await browserSession.setup()
 
         return await browserSession.createScreenshot(url, imageOptions, resourceOptions, pageOptions)
     } finally {
-        console.log('Closing the browser session...')
+        console.log('Closing browser connection...')
         await browserSession.teardown()
     }
 }

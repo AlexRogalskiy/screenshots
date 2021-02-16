@@ -1,4 +1,4 @@
-import { BrowserOptions, ChromeArgOptions, LaunchOptions, PuppeteerLifeCycleEvent } from 'puppeteer'
+import { BrowserOptions, ChromeArgOptions, LaunchOptions, PuppeteerLifeCycleEvent } from 'puppeteer-core'
 import { LaunchOptions as PlayLaunchOptions } from 'playwright-chromium'
 
 import { strToEnum } from '../utils/commons'
