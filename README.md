@@ -86,12 +86,12 @@ There are several options you can use from the list:
 This is example of using _**Styled Screenshots**_:
 
 ```
-![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.brainyquote.com/quote_of_the_day&width=400&height=400)
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.nasa.gov/multimedia/imagegallery/iotd.html&width=400&height=460)
 ```
 
 Result:
 
-![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.brainyquote.com/quote_of_the_day&width=400&height=400)
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.nasa.gov/multimedia/imagegallery/iotd.html&width=400&height=460)
 
 ## _Visitor stats_
 

@@ -1,4 +1,5 @@
 import { BrowserOptions, ChromeArgOptions, LaunchOptions } from 'puppeteer-core'
+import { Browser, Page } from 'puppeteer'
 
 import { ImageOptions, PageOptions, ResourceOptions } from '../typings/types'
 import { mergeProps, toFormatString } from './commons'
@@ -12,12 +13,12 @@ export default class LocalBrowserSession {
      * Current chromium browser instance
      * @private
      */
-    private browser
+    private browser: Browser
     /**
      * Current page instance
      * @private
      */
-    private page
+    private page: Page
 
     /**
      * Obtains browser and page object on bootstrap
