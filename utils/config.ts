@@ -52,7 +52,7 @@ export const CONFIG: ConfigOptions = {
         },
     },
     pageOptions: {
-        waitUntil: ['load', 'domcontentloaded'],
+        waitUntil: ['domcontentloaded'],
     },
     launchOptions: {
         chromiumSandbox: false,
