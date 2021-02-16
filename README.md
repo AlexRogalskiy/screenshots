@@ -86,12 +86,12 @@ There are several options you can use from the list:
 This is example of using _**Styled Screenshots**_:
 
 ```
-![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.google.com/&width=450&height=260)
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.google.com/&width=450&height=250)
 ```
 
 Result:
 
-![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.google.com/&width=450&height=260)
+![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.google.com/&width=450&height=250)
 
 ## _Visitor stats_
 
