@@ -4,7 +4,8 @@
         ":semanticCommits",
         ":maintainLockFilesWeekly",
         ":prHourlyLimitNone",
-        ":prConcurrentLimitNone"
+        ":prConcurrentLimitNone",
+        ":pinAllExceptPeerDependencies"
     ],
     "maven": {
         "enabled": true
