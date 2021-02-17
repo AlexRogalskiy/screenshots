@@ -53,6 +53,7 @@ export default class LocalBrowserSession {
         await this.page.setViewport(imageOptions)
         await this.page.goto(url, pageOptions)
 
+        //await this.page.waitForFunction('window.done === true')
         return await this.page.screenshot(resourceOptions)
     }
 

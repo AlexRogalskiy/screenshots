@@ -100,6 +100,7 @@ export default class PlaywrightBrowserSession {
     ): Promise<Buffer | string | void> {
         await this.page.setViewportSize(imageOptions)
         await this.page.goto(url, pageOptions)
+
         return await this.page.screenshot(resourceOptions)
     }
 
@@ -107,6 +108,8 @@ export default class PlaywrightBrowserSession {
      * Closes browser session on teardown
      */
     async teardown(): Promise<void> {
+        console.log('Closing local browser session...')
+
         if (this.page) await this.page.close()
         if (this.context) await this.context.close()
         if (this.browser) await this.browser.close()

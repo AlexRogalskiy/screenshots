@@ -28,6 +28,7 @@ export const CONFIG: ConfigOptions = {
                 '--disable-dev-shm-usage',
                 '--hide-scrollbars',
                 '--disable-web-security',
+                '--window-size=2560,1440',
             ],
             ignoreDefaultArgs: ['--disable-extensions'],
             ignoreHTTPSErrors: true,
