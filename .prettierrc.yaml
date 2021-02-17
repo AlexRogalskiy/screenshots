@@ -11,3 +11,20 @@ bracketSpacing: true
 jsxBracketSameLine: true
 arrowParens: 'avoid'
 proseWrap: 'always'
+overrides:
+  - files: '*.test.js'
+    options:
+      semi: true
+  - files:
+      - '*.html'
+      - 'legacy/**/*.js'
+    options:
+      semi: true
+  - files: '**/*.md*'
+    options:
+      proseWrap: 'always'
+      printWidth: 80
+  - files: '**/.all-contributorsrc'
+    options:
+      parser: 'json-stringify'
+      singleQuote: false
