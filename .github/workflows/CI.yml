@@ -35,11 +35,11 @@ jobs:
 
       - run: yarn --pure-lockfile
 
+      - name: Install
+        run: yarn install
+
       - name: Jest
         run: yarn test
 
       - name: Lint
         run: yarn lint
-
-      - name: Build
-        run: yarn build
