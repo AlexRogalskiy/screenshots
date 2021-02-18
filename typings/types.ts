@@ -28,10 +28,6 @@ export interface ImageLocations {
      * Generated image path.
      */
     readonly path: string
-    /**
-     * Generated image extension.
-     */
-    readonly extension: string
 }
 
 export interface ImageOptions {

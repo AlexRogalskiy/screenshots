@@ -4,7 +4,6 @@ export const CONFIG: ConfigOptions = {
     locationOptions: {
         name: 'screenshot',
         path: 'images',
-        extension: 'png',
     },
     imageOptions: {
         width: 800,
