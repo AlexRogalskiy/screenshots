@@ -140,6 +140,10 @@ See also the list of [contributors][contributors] who participated in this proje
 
 [![Stargazers repo roster for @AlexRogalskiy/screenshots](https://reporoster.com/stars/AlexRogalskiy/screenshots)][stars]
 
+## _Forks_
+
+[![Forkers repo roster for @AlexRogalskiy/screenshots](https://reporoster.com/forks/AlexRogalskiy/screenshots)][forkers]
+
 ## _Development Support_
 
 Like _**Styled Screenshots**_ ? Consider buying me a coffee :\)
@@ -161,4 +165,5 @@ Like _**Styled Screenshots**_ ? Consider buying me a coffee :\)
   [pulls]:          https://github.com/AlexRogalskiy/screenshots/pulls
   [wiki]:           https://github.com/AlexRogalskiy/screenshots/wiki
   [stars]:          https://github.com/AlexRogalskiy/screenshots/stargazers
+  [forkers]:        https://github.com/AlexRogalskiy/screenshots/network/members
   [contributors]:   https://github.com/AlexRogalskiy/screenshots/graphs/contributors
