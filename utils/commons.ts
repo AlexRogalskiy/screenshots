@@ -1,9 +1,5 @@
 import fetch from 'isomorphic-unfetch'
-import { existsSync, mkdirSync } from 'fs'
-import { join } from 'path'
 import _ from 'lodash'
-
-import { ImageLocations } from '../typings/types'
 
 export const toBase64ImageUrl = async (imgUrl: string): Promise<string> => {
     const fetchImageUrl = await fetch(imgUrl)
@@ -12,10 +8,6 @@ export const toBase64ImageUrl = async (imgUrl: string): Promise<string> => {
     return `data:${fetchImageUrl.headers.get('Content-Type') || 'image/png'};base64,${Buffer.from(
         responseArrBuffer
     ).toString('base64')}`
-}
-
-export const separator = (num: number, delim = '='): string => {
-    return Array(num).join(delim)
 }
 
 export const isValidUrl = (str: string): boolean => {
@@ -58,14 +50,6 @@ export const toBoolean = (value: unknown): boolean => {
     )
 }
 
-export const omitNull = <T>(obj: T): T => {
-    // eslint-disable-next-line github/array-foreach
-    Object.keys(obj)
-        .filter(k => obj[k] === null || obj[k] === undefined)
-        .forEach(k => delete obj[k])
-    return obj
-}
-
 export const mergeProps = <T>(...obj: unknown[]): T => {
     return _.mergeWith({}, ...obj, (o, s) => (_.isNull(s) ? o : s))
 }
@@ -96,22 +80,6 @@ export const toInt = (str: string, defaultValue?: number): number | undefined =>
     }
 }
 
-export const createFilePath = (locations: ImageLocations): string => {
-    const date = new Date()
-    const timestamp = `${date.getFullYear()}_${
-        date.getMonth() + 1
-    }_${date.getDate()}_${date.getHours()}_${date.getMinutes()}`
-
-    const { path, name, extension } = locations
-    const fileName = `${name}-${timestamp}.${extension}`
-
-    if (!existsSync(path)) {
-        mkdirSync(path)
-    }
-
-    return join(path, fileName)
-}
-
 /**
  * Utility function to create a K:V from a list of strings
  * @param o initial input array to operate by
@@ -121,8 +89,4 @@ export const strToEnum = <T extends string>(o: T[]): { [K in T]: K } => {
         res[key] = key
         return res
     }, Object.create(null))
-}
-
-export const pluck = <T, K extends keyof T>(o: T, propertyNames: K[]): T[K][] => {
-    return propertyNames.map(n => o[n])
 }
