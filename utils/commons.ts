@@ -10,6 +10,10 @@ export const toBase64ImageUrl = async (imgUrl: string): Promise<string> => {
     ).toString('base64')}`
 }
 
+export const separator = (num: number, delim = '='): string => {
+    return Array(num).join(delim)
+}
+
 export const isValidUrl = (str: string): boolean => {
     try {
         new URL(str)

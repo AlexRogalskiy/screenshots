@@ -15,8 +15,10 @@ export enum BrowserType {
     firefox = 'firefox',
 }
 
+export type ChromeBrowserOptions = LaunchOptions & ChromeArgOptions & BrowserOptions
+
 export type BrowserProfileOptions = {
-    [K in BrowserProfile]: LaunchOptions & ChromeArgOptions & BrowserOptions
+    [K in BrowserProfile]: ChromeBrowserOptions
 }
 
 export interface ImageLocations {

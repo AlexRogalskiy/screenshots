@@ -1,11 +1,11 @@
-import { Browser, BrowserOptions, ChromeArgOptions, LaunchOptions, Page } from 'puppeteer'
+import { Browser, Page } from 'puppeteer'
 
-import { ImageOptions, PageOptions, ResourceOptions } from '../typings/types'
+import { ChromeBrowserOptions, ImageOptions, PageOptions, ResourceOptions } from '../typings/types'
 import { mergeProps, separator, toBoolean, toFormatString } from './commons'
 import { CONFIG } from './config'
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
-const browser = require('puppeteer')
+const browserSession = require('puppeteer')
 
 export default class BrowserSession {
     /**
@@ -28,7 +28,7 @@ export default class BrowserSession {
         },
     })
     /**
-     * Current chromium browser instance
+     * Current chromium browserSession instance
      * @private
      */
     private browser: Browser
@@ -39,24 +39,24 @@ export default class BrowserSession {
     private page: Page
 
     /**
-     * Obtains browser and page object on bootstrap
-     * @param options initial input {@link LaunchOptions} & {@link ChromeArgOptions} & {@link BrowserOptions}
+     * Obtains browserSession and page object on bootstrap
+     * @param options initial input {@link ChromeBrowserOptions}
      */
-    async setup(options?: LaunchOptions & ChromeArgOptions & BrowserOptions): Promise<void> {
-        const browserOptions: ImageOptions = mergeProps(
+    async setup(options?: ChromeBrowserOptions): Promise<void> {
+        const browserOptions: ChromeBrowserOptions = mergeProps(
             toBoolean(process.env.CHROME_EMBEDDED) ? CONFIG.browserOptions.prod : CONFIG.browserOptions.dev,
             options
         )
 
-        console.log(`\n>>> Browser options=${toFormatString(browserOptions)}`)
+        console.log(`>>> Browser options=${toFormatString(browserOptions)}`)
 
-        // Launches the Chromium browser.
-        this.browser = await browser.launch(browserOptions)
+        // Launches the Chromium browserSession.
+        this.browser = await browserSession.launch(browserOptions)
         this.page = await this.browser.newPage()
     }
 
     /**
-     * Logs browser certificates
+     * Logs browserSession certificates
      */
     async logSecurityDetails(): Promise<void> {
         // eslint-disable-next-line @typescript-eslint/await-thenable
@@ -71,7 +71,7 @@ export default class BrowserSession {
     }
 
     /**
-     * Logs browser response
+     * Logs browserSession response
      */
     async logResponse(): Promise<void> {
         // eslint-disable-next-line @typescript-eslint/await-thenable
@@ -85,7 +85,7 @@ export default class BrowserSession {
     }
 
     /**
-     * Logs browser request
+     * Logs browserSession request
      */
     async logRequest(): Promise<void> {
         this.page.on('request', async request => {
@@ -127,10 +127,10 @@ export default class BrowserSession {
     }
 
     /**
-     * Closes browser session on teardown
+     * Closes browserSession session on teardown
      */
     async teardown(): Promise<void> {
-        console.log('Closing remote browser session...')
+        console.log('Closing remote browserSession session...')
 
         if (this.page) await this.page.close()
         if (this.browser) await this.browser.close()

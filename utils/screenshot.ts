@@ -1,6 +1,7 @@
 import { ImageOptions, PageOptions, ParsedRequest, ResourceOptions } from '../typings/types'
-import RemoteBrowserSession from './remoteBrowser'
-import LocalBrowserSession from './localBrowser'
+import RemoteBrowserSession from './remoteBrowserSession'
+import LocalBrowserSession from './localBrowserSession'
+import BaseBrowserSession from './baseBrowserSession'
 import { mergeProps, toFormatString } from './commons'
 import { CONFIG } from './config'
 
@@ -20,7 +21,8 @@ const createScreenshot = async (
     file?: string
 ): Promise<Buffer | string | void> => {
     console.log(
-        `\n>>> Generating screenshot with parameters:
+        `
+        >>> Generating screenshot with parameters:
         url=${url},
         name=${file},
         imageOptions=${toFormatString(imageOptions)},
@@ -28,15 +30,26 @@ const createScreenshot = async (
         `
     )
 
-    const browserSession = process.env.AWS_LAMBDA_FUNCTION_VERSION
-        ? new RemoteBrowserSession()
-        : new LocalBrowserSession()
+    return await getSessionScreenshot(url, imageOptions, resourceOptions, pageOptions)
+}
+
+const getSessionScreenshot = async (
+    url: string,
+    imageOptions: ImageOptions,
+    resourceOptions: ResourceOptions,
+    pageOptions: PageOptions
+): Promise<Buffer | string | void> => {
+    const browserSession = await getSession()
     try {
         await browserSession.setup()
-
         return await browserSession.createScreenshot(url, imageOptions, resourceOptions, pageOptions)
     } finally {
-        console.log('Closing browser connection...')
         await browserSession.teardown()
     }
+}
+
+const getSession = async (): Promise<BaseBrowserSession> => {
+    return process.env.AWS_LAMBDA_FUNCTION_VERSION
+        ? RemoteBrowserSession.createSession()
+        : LocalBrowserSession.createSession()
 }
