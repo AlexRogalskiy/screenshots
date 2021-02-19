@@ -8,6 +8,8 @@
         "deploy:dev": "env-cmd -e prod vercel",
         "deploy:prod": "env-cmd -e prod vercel --prod",
         "develop": "env-cmd -e dev vercel dev",
+        "format": "prettier --write **/*.ts",
+        "format:check": "prettier --check **/*.ts",
         "lint": "eslint --cache --fix --quiet --format codeframe --ext js,ts .",
         "reinstall": "del-cli ./node_modules ./package-lock.json ./yarn.lock",
         "postreinstall": "yarn setup",
