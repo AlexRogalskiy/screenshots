@@ -51,7 +51,7 @@
         "prettier": "^2.1.2",
         "puppeteer": "^7.0.0",
         "qawolf": "1.2.0",
-        "semantic-release": "^15.10.5",
+        "semantic-release": "^17.3.9",
         "ts-jest": "^26.4.4",
         "ts-node": ">=9.0.0",
         "typescript": "^4.1.3"
