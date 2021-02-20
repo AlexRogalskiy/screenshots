@@ -18,7 +18,7 @@ export enum BrowserType {
 export type ChromeBrowserOptions = LaunchOptions & ChromeArgOptions & BrowserOptions
 
 export type BrowserProfileOptions = {
-    [K in BrowserProfile]: ChromeBrowserOptions
+    readonly [K in BrowserProfile]: ChromeBrowserOptions
 }
 
 export interface ImageLocations {
