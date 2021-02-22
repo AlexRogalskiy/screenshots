@@ -94,7 +94,9 @@ This is example of using _**Styled Screenshots**_:
 
 Result:
 
-![Styled Screenshots](https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.google.com/&width=450&height=250)
+<div align="center" style="align-content: center">
+    <img width="100%" height="100%" src="https://styled-screenshots.alexrogalskiy.vercel.app/api?url=https://www.google.com/&width=450&height=250" alt="Screenshots" />
+</div>
 
 ## _Visitor stats_
 
