@@ -10772,9 +10772,9 @@
             }
         },
         "playwright-core": {
-            "version": "1.8.1",
-            "resolved": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.8.1.tgz",
-            "integrity": "sha512-OysNL+mNSpjqvs1dlymBTxv0GZhGwTbuv+KBnPfhzXQZCpzhzin01y/JNtfopT4P8T8awrglEP9hynOZ/H7OeQ==",
+            "version": "1.9.1",
+            "resolved": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.9.1.tgz",
+            "integrity": "sha512-V/i2kMWRaJ+76XTCiR0+dS711V0+JVPNw+YcOiCa0GjGiq3bEhZCFPeHMv++BH4hfC3jFXuD9/XUaw2to6EVcw==",
             "requires": {
                 "commander": "^6.1.0",
                 "debug": "^4.1.1",
@@ -10787,6 +10787,7 @@
                 "proper-lockfile": "^4.1.1",
                 "proxy-from-env": "^1.1.0",
                 "rimraf": "^3.0.2",
+                "stack-utils": "^2.0.3",
                 "ws": "^7.3.1"
             },
             "dependencies": {
@@ -12420,7 +12421,6 @@
             "version": "2.0.3",
             "resolved": "https://registry.npmjs.org/stack-utils/-/stack-utils-2.0.3.tgz",
             "integrity": "sha512-gL//fkxfWUsIlFL2Tl42Cl6+HFALEaB1FU76I/Fy+oZjRreP7OPMXFlGbxM7NQsI0ZpUfw76sHnv0WNYuTb7Iw==",
-            "dev": true,
             "requires": {
                 "escape-string-regexp": "^2.0.0"
             },
@@ -12428,8 +12428,7 @@
                 "escape-string-regexp": {
                     "version": "2.0.0",
                     "resolved": "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz",
-                    "integrity": "sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==",
-                    "dev": true
+                    "integrity": "sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w=="
                 }
             }
         },
