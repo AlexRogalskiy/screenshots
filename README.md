@@ -13,6 +13,7 @@
 ![GitHub Repository branches](https://badgen.net/github/branches/AlexRogalskiy/screenshots)
 ![GitHub Repository dependents](https://badgen.net/github/dependents-repo/AlexRogalskiy/screenshots)
 [![Tokei](https://tokei.rs/b1/github/AlexRogalskiy/screenshots?category=lines)](https://github.com/XAMPPRocky/tokei)
+![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/screenshots)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/alexrogalskiy/screenshots/master/LICENSE?token=AH44ZFH7IF2KSEDK7LSIW3C7YOFYC)
 [![Issue](https://img.shields.io/github/issues/alexrogalskiy/screenshots)](https://img.shields.io/github/issues/alexrogalskiy/screenshots)
