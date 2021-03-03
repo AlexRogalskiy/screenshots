@@ -3,18 +3,17 @@ import { LaunchOptions as PlayLaunchOptions } from 'playwright-chromium'
 
 import { strToEnum } from '../utils/commons'
 
-// eslint-disable-next-line no-shadow
 export enum BrowserProfile {
     dev = 'dev',
     prod = 'prod',
 }
 
-// eslint-disable-next-line no-shadow
 export enum BrowserType {
     chromium = 'chromium',
     firefox = 'firefox',
 }
 
+// eslint-disable-next-line spellcheck/spell-checker
 export type ChromeBrowserOptions = LaunchOptions & ChromeArgOptions & BrowserOptions
 
 export type BrowserProfileOptions = {
