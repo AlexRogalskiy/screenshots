@@ -1,5 +1,7 @@
 # _Styled screenshots_
 
+> Generate jpeg/png [styled screenshots](https://en.wikipedia.org/wiki/Screenshot)
+>
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/AlexRogalskiy/screenshots)
 ![GitHub Release Date](https://img.shields.io/github/release-date/AlexRogalskiy/screenshots)
 ![Lines of code](https://tokei.rs/b1/github/AlexRogalskiy/screenshots?category=lines)
@@ -14,6 +16,7 @@
 ![GitHub Repository dependents](https://badgen.net/github/dependents-repo/AlexRogalskiy/screenshots)
 [![Tokei](https://tokei.rs/b1/github/AlexRogalskiy/screenshots?category=lines)](https://github.com/XAMPPRocky/tokei)
 ![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/screenshots)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/alexrogalskiy/screenshots/master/LICENSE?token=AH44ZFH7IF2KSEDK7LSIW3C7YOFYC)
 [![Issue](https://img.shields.io/github/issues/alexrogalskiy/screenshots)](https://img.shields.io/github/issues/alexrogalskiy/screenshots)
@@ -79,14 +82,14 @@ It's simple, you can copy paste this markdown content, like this one:
 
 There are several options you can use from the list:
 
-|  **Options**  | **Description**           |   **Type**                       | **Example**            | **Query Params**          | 
-| ------------- | ------------------------- | -------------------------------- | ---------------------- | ------------------------- |
-| **Url**       | Json data source url      | String url in json data format   | https://host/data.json | ```?url=[value]```        |
-| **Width**     | Chart graph image width   | Numeric image width              | 400                    | ```&width=[value]```      |
-| **Height**    | Chart graph image height  | Numeric image height             | 400                    | ```&height=[value]```     |
-| **FullPage**  | Full page viewport        | Boolean/numeric                  | true|false || 1|0      | ```&fullPage=[value]```   |
-| **Type**      | Image content type        | String                           | jpeg | png             | ```&type=[value]```       |
-| **Encoding**  | Image encoding            | String                           | base64 | binary        | ```&encoding=[value]```   |
+|  **Options**    | **Description**           |   **Type**                         | **Example**            | **Query Params**          | 
+| --------------- | ------------------------- | ---------------------------------- | ---------------------- | ------------------------- |
+| **[Url]**       | Json data source url      | <code>String</code>                | https://host/data.json | ```?url=[value]```        |
+| **[Width]**     | Chart graph image width   | <code>Numeric</code>               | 400                    | ```&width=[value]```      |
+| **[Height]**    | Chart graph image height  | <code>Numeric</code>               | 400                    | ```&height=[value]```     |
+| **[FullPage]**  | Full page viewport        | <code>Boolean/numeric</code>       | true|false || 1|0      | ```&fullPage=[value]```   |
+| **[Type]**      | Image content type        | <code>String</code>                | jpeg | png             | ```&type=[value]```       |
+| **[Encoding]**  | Image encoding            | <code>String</code>                | base64 | binary        | ```&encoding=[value]```   |
 
 ## _Example_
 
