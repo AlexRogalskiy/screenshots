@@ -1,7 +1,7 @@
 # _Styled screenshots_
 
 > Generate jpeg/png [styled screenshots](https://en.wikipedia.org/wiki/Screenshot)
->
+
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/AlexRogalskiy/screenshots)
 ![GitHub Release Date](https://img.shields.io/github/release-date/AlexRogalskiy/screenshots)
 ![Lines of code](https://tokei.rs/b1/github/AlexRogalskiy/screenshots?category=lines)
