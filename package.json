@@ -14,6 +14,7 @@
         "reinstall": "del-cli ./node_modules ./package-lock.json ./yarn.lock",
         "postreinstall": "yarn setup",
         "postinstall": "husky install",
+        "prepare": "rimraf coverage",
         "setup": "yarn",
         "semantic-release": "semantic-release",
         "test:qawolf": "qawolf test --headless",
