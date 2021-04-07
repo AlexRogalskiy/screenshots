@@ -42,7 +42,7 @@ export const notBlankOrElse = (str: string, defaultValue: string): string => {
     return isBlankString(str) ? defaultValue : str
 }
 
-export const toBoolean = (value: unknown): boolean => {
+export const toBoolean = (value: any): boolean => {
     return (
         (typeof value === 'string' && /true/i.test(value)) ||
         value === true ||
