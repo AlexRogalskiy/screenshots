@@ -23,11 +23,17 @@ module.exports = {
         '!**/redirects/**',
     ],
     coverageThreshold: {
-        global: {
-            branches: 2,
-            functions: 2,
-            lines: 2,
-            statements: 2,
+        'global': {
+            branches: 4,
+            functions: 4,
+            lines: 4,
+            statements: 4,
+        },
+        './src/**/*.ts': {
+            branches: 0,
+            functions: 0,
+            lines: 0,
+            statements: 0,
         },
     },
     coverageDirectory: './coverage',

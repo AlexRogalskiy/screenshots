@@ -1,7 +1,7 @@
 # Repository settings set via https://github.com/probot/settings
 ---
 repository:
-  description: "styled-screenshots"
+  description: "screenshots"
   homepage: https://github.com/AlexRogalskiy/screenshots
   topics: web, documents, visualization
   private: false

@@ -1,45 +1,21 @@
-import { NowRequest, NowResponse } from '@vercel/node/dist'
+import { NowRequest, NowResponse } from '@vercel/node'
 
-import { notBlankOrElse, toBoolean, toInt, toString, requireValidUrl } from '../utils/commons'
-import { screenshotRenderer } from '../utils/screenshot'
-import { ImageContent, ImageContentType, ImageEncoding, ImageEncodingType } from '../typings/types'
-import { CONFIG } from '../utils/config'
+import { RoutePattern } from '../typings/enum-types'
+
+import { getRoute } from '../src/routes/routes'
+import { single } from '../src/utils/commons'
+import { sendResponse } from '../src/utils/requests'
+
+import { responseError } from '../src/errors/errors'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<NowResponse> {
     try {
-        const url = requireValidUrl(toString(req.query.url))
-        const width = toInt(toString(req.query.width))
-        const height = toInt(toString(req.query.height))
+        const routePattern = RoutePattern[single(req.query.mode)]
 
-        const fullPage = toBoolean(toString(req.query.fullPage))
-        const type: ImageContentType = ImageContent[toString(req.query.type)]
-        const encoding: ImageEncodingType = ImageEncoding[toString(req.query.encoding)]
+        const route = getRoute(routePattern)
 
-        const imageOptions = { width, height }
-        const resourceOptions = { fullPage, type, encoding }
-
-        const screenshot = await screenshotRenderer({
-            url,
-            imageOptions,
-            resourceOptions,
-        })
-
-        res.setHeader('Cache-Control', 'no-cache,max-age=0,no-store,s-maxage=0,proxy-revalidate')
-        res.setHeader('Pragma', 'no-cache')
-        res.setHeader('Expires', '-1')
-        res.setHeader('Content-type', `image/${notBlankOrElse(type, CONFIG.resourceOptions.type)}`)
-        res.setHeader(
-            'Content-transfer-encoding',
-            `${notBlankOrElse(encoding, CONFIG.resourceOptions.encoding)}`
-        )
-        res.setHeader('X-Powered-By', 'Vercel')
-
-        return res.send(screenshot)
+        return await route(req, res)
     } catch (error) {
-        return res.send({
-            status: 'Error',
-            name: error.name,
-            message: error.message,
-        })
+        return sendResponse(res, responseError(error.message))
     }
 }
