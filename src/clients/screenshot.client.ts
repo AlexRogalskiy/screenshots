@@ -1,6 +1,6 @@
 import {
+    GeneralPageOptions,
     ImageOptions,
-    PlaywrightPageOptions,
     PuppeteerPageOptions,
     RequestOptions,
     ResourceOptions,
@@ -40,10 +40,7 @@ export async function screenshotRenderer(request: RequestOptions): Promise<Buffe
         routeOptions: request.routeOptions,
         imageOptions: mergeProps<ImageOptions>(imageOptions, request.imageOptions),
         resourceOptions: mergeProps<ResourceOptions>(resourceOptions, request.resourceOptions),
-        pageOptions: mergeProps<PuppeteerPageOptions | PlaywrightPageOptions>(
-            pageOptions,
-            request.pageOptions
-        ),
+        pageOptions: mergeProps<GeneralPageOptions>(pageOptions, request.pageOptions),
     }
 
     return await getSessionScreenshot(requestData)

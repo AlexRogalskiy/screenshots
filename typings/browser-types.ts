@@ -66,6 +66,12 @@ export type PuppeteerPageOptions = PageOptions<PuppeteerLifeCycleEvent | Puppete
  * @desc Type representing playwright page configuration options
  */
 export type PlaywrightPageOptions = PageOptions<'load' | 'domcontentloaded' | 'networkidle'>
+
+/**
+ * GeneralPageOptions
+ * @desc Type representing general page configuration options
+ */
+export type GeneralPageOptions = PuppeteerPageOptions | PlaywrightPageOptions
 //--------------------------------------------------------------------------------------------------
 /**
  * LocationOptions
@@ -145,7 +151,7 @@ export type ScreenshotOptions = {
     /**
      * Page configuration options.
      */
-    readonly pageOptions?: Partial<PuppeteerPageOptions | PlaywrightPageOptions>
+    readonly pageOptions?: Partial<GeneralPageOptions>
     /**
      * Browser configuration options.
      */
@@ -213,6 +219,6 @@ export type RequestOptions = {
     /**
      * Request page options.
      */
-    readonly pageOptions?: PuppeteerPageOptions | PlaywrightPageOptions
+    readonly pageOptions?: GeneralPageOptions
 }
 //--------------------------------------------------------------------------------------------------
