@@ -2,7 +2,7 @@ import { NowResponse } from '@vercel/node'
 
 import fetch from 'isomorphic-unfetch'
 
-import { Headers } from '../../typings/domain-types'
+import { Headers } from '../../typings/standard-types'
 
 import { ExtendableError, ResponseError } from '../errors/errors'
 import { errorLogs } from './loggers'

@@ -17,6 +17,18 @@ export type Undef<T> = T | undefined
 export type Keys<T> = keyof T
 //--------------------------------------------------------------------------------------------------
 /**
+ * KeyRecord
+ * @desc Type representing key record
+ */
+export type KeyRecord<T extends PropertyKey> = { [K in T]: K }
+//--------------------------------------------------------------------------------------------------
+/**
+ * Headers
+ * @desc Type representing headers
+ */
+export type Headers = Record<string, number | string | string[]>
+//--------------------------------------------------------------------------------------------------
+/**
  * Processor
  * @desc Type representing processor function type in TypeScript
  * @example

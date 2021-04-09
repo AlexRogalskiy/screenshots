@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from '@vercel/node'
 
-import { ResourceOptions } from '../../typings/browser-types'
+import { ImageContentType, ImageEncodingType, ResourceOptions } from '../../typings/browser-types'
 
 import * as templateService from '../services/template.service'
 
@@ -42,8 +42,8 @@ export async function defaultController(req: NowRequest, res: NowResponse): Prom
 
     const selector = single(req.query.selector)
     const fullPage = toBoolean(single(req.query.fullPage))
-    const type = IMAGE_CONTENT[single(req.query.type)]
-    const encoding = IMAGE_ENCODING[single(req.query.encoding)]
+    const type: ImageContentType = IMAGE_CONTENT[single(req.query.type)]
+    const encoding: ImageEncodingType = IMAGE_ENCODING[single(req.query.encoding)]
 
     const routeOptions = { url }
     const imageOptions = { width, height }

@@ -110,8 +110,8 @@ export const pluck = <T, K extends keyof T>(value: T, propertyNames: K[]): T[K][
  * Utility function to create a K:V from a list of strings
  * @param values initial input array to operate by
  */
-export const strToEnum = <T extends string>(values: T[]): { [K in T]: T } => {
-    return toEnum(values, v => v)
+export const strToEnum = <T extends string>(values: T[]): { [K in T]: K } => {
+    return toEnum(values)
 }
 
 /**

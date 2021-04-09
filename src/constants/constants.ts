@@ -2,7 +2,8 @@ import boxen from 'boxen'
 
 import { LaunchOptions as PlayLaunchOptions } from 'playwright-chromium'
 
-import { Headers, RouteOptions } from '../../typings/domain-types'
+import { RouteOptions } from '../../typings/domain-types'
+import { Headers, KeyRecord } from '../../typings/standard-types'
 import {
     ChromeBrowserOptions,
     ImageOptions,
@@ -15,14 +16,29 @@ import {
 import { strToEnum } from '../utils/commons'
 
 /**
+ * Supported content image types
+ * - 'jpeg'
+ * - 'png'
+ */
+const IMAGE_TYPES = ['jpeg', 'png'] as const
+/**
+ * Supported content image encodings
+ *  - 'base64'
+ *  - 'binary'
+ */
+const IMAGE_ENCODINGS = ['base64', 'binary'] as const
+
+/**
  * Image supported content types
  */
-export const IMAGE_CONTENT = strToEnum(['jpeg', 'png'])
+export const IMAGE_CONTENT: KeyRecord<typeof IMAGE_TYPES[number]> = strToEnum(Object.values(IMAGE_TYPES))
 
 /**
  * Image supported content encoding types
  */
-export const IMAGE_ENCODING = strToEnum(['base64', 'binary'])
+export const IMAGE_ENCODING: KeyRecord<typeof IMAGE_ENCODINGS[number]> = strToEnum(
+    Object.values(IMAGE_ENCODINGS)
+)
 
 /**
  * Output configuration options
