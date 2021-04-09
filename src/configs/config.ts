@@ -4,15 +4,15 @@ import { ProfileOptions } from '../../typings/domain-types'
 import { OUTPUT_OPTIONS, ROUTE_OPTIONS, SCREENSHOTS_OPTIONS } from '../constants/constants'
 
 /**
- * ProfilePatternOptions
+ * ProfileConfigOptions
  * @desc Type representing profile configuration options
  */
-export type ProfilePatternOptions = Record<ProfilePattern, ProfileOptions>
+export type ProfileConfigOptions = Record<ProfilePattern, ProfileOptions>
 
 /**
  * Profile configuration options
  */
-export const CONFIG: Readonly<ProfilePatternOptions> = {
+export const CONFIG: Readonly<ProfileConfigOptions> = {
     dev: {
         routeOptions: ROUTE_OPTIONS,
         screenshotOptions: SCREENSHOTS_OPTIONS,

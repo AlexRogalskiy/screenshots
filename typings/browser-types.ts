@@ -1,22 +1,23 @@
 import { BrowserOptions, ChromeArgOptions, LaunchOptions, PuppeteerLifeCycleEvent } from 'puppeteer-core'
 import { LaunchOptions as PlayLaunchOptions } from 'playwright-chromium'
 
+import { Keys, Undef } from './standard-types'
 import { RouteOptions } from './domain-types'
 
-import { IMAGE_ENCODING, IMAGE_TYPE } from '../src/constants/constants'
+import { IMAGE_CONTENT, IMAGE_ENCODING } from '../src/constants/constants'
 
 //--------------------------------------------------------------------------------------------------
 /**
  * ImageContentType
  * @desc Type representing supported image contents
  */
-export type ImageContentType = keyof typeof IMAGE_TYPE
+export type ImageContentType = Keys<typeof IMAGE_CONTENT>
 
 /**
  * ImageEncodingType
  * @desc Type representing supported image encodings
  */
-export type ImageEncodingType = keyof typeof IMAGE_ENCODING
+export type ImageEncodingType = Keys<typeof IMAGE_ENCODING>
 
 //--------------------------------------------------------------------------------------------------
 /**
@@ -39,41 +40,32 @@ export type ChromeBrowserOptions = LaunchOptions & ChromeArgOptions & BrowserOpt
  * PageOptions
  * @desc Type representing page configuration options
  */
-export type PageOptions = {
+export type PageOptions<T> = {
     /**
      * Page referer.
      */
-    readonly referer?: string | undefined
+    readonly referer?: Undef<string>
     /**
      * Page loading timeout.
      */
-    readonly timeout?: number | undefined
+    readonly timeout?: Undef<number>
     /**
-     * Page loading timeout by event.
-     * 'load' | 'domcontentloaded' | 'networkidle'
+     * Page loading timeout by DOM event.
      */
-    readonly waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[]
+    readonly waitUntil?: T
 }
-//--------------------------------------------------------------------------------------------------
+
 /**
- * PlayPageOptions
- * @desc Type representing play page configuration options
+ * PuppeteerPageOptions
+ * @desc Type representing puppeteer page configuration options
  */
-export type PlayPageOptions = {
-    /**
-     * Page referer.
-     */
-    readonly referer?: string | undefined
-    /**
-     * Page loading timeout.
-     */
-    readonly timeout?: number | undefined
-    /**
-     * Page loading timeout by event.
-     * 'load' | 'domcontentloaded' | 'networkidle'
-     */
-    readonly waitUntil?: 'load' | 'domcontentloaded' | 'networkidle'
-}
+export type PuppeteerPageOptions = PageOptions<PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[]>
+
+/**
+ * PlaywrightPageOptions
+ * @desc Type representing playwright page configuration options
+ */
+export type PlaywrightPageOptions = PageOptions<'load' | 'domcontentloaded' | 'networkidle'>
 //--------------------------------------------------------------------------------------------------
 /**
  * LocationOptions
@@ -81,11 +73,11 @@ export type PlayPageOptions = {
  */
 export type LocationOptions = {
     /**
-     * Generated image name.
+     * Image name.
      */
     readonly name: string
     /**
-     * Generated image path.
+     * Image path.
      */
     readonly path: string
 }
@@ -104,7 +96,7 @@ export type ImageOptions = {
      */
     readonly height: number
     /**
-     * Device scale factor.
+     * Page device scale factor.
      */
     readonly deviceScaleFactor?: number
 }
@@ -115,19 +107,19 @@ export type ImageOptions = {
  */
 export type ImageClipOptions = {
     /**
-     * page clip start X-position in pixels.
+     * Page clip start X-position (in pixels).
      */
     readonly x: number
     /**
-     * page clip start Y-position in pixels.
+     * Page clip start Y-position (in pixels).
      */
     readonly y: number
     /**
-     * page clip width in pixels.
+     * Page clip width (in pixels).
      */
     readonly width: number
     /**
-     * page clip height in pixels.
+     * Page clip height (in pixels).
      */
     readonly height: number
 }
@@ -147,23 +139,23 @@ export type ScreenshotOptions = {
      */
     readonly imageClipOptions?: Partial<ImageClipOptions>
     /**
-     * Play browser launch options.
+     * Play launch configuration options.
      */
     readonly playLaunchOptions?: Partial<PlayLaunchOptions>
     /**
      * Page configuration options.
      */
-    readonly pageOptions?: Partial<PageOptions | PlayPageOptions>
+    readonly pageOptions?: Partial<PuppeteerPageOptions | PlaywrightPageOptions>
     /**
      * Browser configuration options.
      */
     readonly browserOptions?: Partial<ChromeBrowserOptions>
     /**
-     * Image location options.
+     * Location configuration options.
      */
     readonly locationOptions?: Partial<LocationOptions>
     /**
-     * Image resource options.
+     * Resource configuration options.
      */
     readonly resourceOptions?: Partial<ResourceOptions>
 }
@@ -221,6 +213,6 @@ export type RequestOptions = {
     /**
      * Request page options.
      */
-    readonly pageOptions?: PageOptions
+    readonly pageOptions?: PuppeteerPageOptions | PlaywrightPageOptions
 }
 //--------------------------------------------------------------------------------------------------

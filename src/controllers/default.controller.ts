@@ -9,14 +9,20 @@ import { requireValidUrl } from '../utils/validators'
 import { setHeaders } from '../utils/requests'
 import { profile } from '../utils/profiles'
 
-import { IMAGE_ENCODING, IMAGE_TYPE, RESOURCE_OPTIONS, RESPONSE_HEADERS } from '../constants/constants'
+import {
+    IMAGE_CONTENT,
+    IMAGE_ENCODING,
+    LOCATION_OPTIONS,
+    RESOURCE_OPTIONS,
+    RESPONSE_HEADERS,
+} from '../constants/constants'
 
-const prepareResponseHeaders = (res: NowResponse, resourceOptions: ResourceOptions): void => {
-    const resources = profile.screenshotOptions.resourceOptions
-    const name = profile.screenshotOptions.locationOptions?.name
+const prepareResponseHeaders = (res: NowResponse, resources: ResourceOptions): void => {
+    const { locationOptions, resourceOptions } = profile.screenshotOptions
 
-    const contentType = resourceOptions.type || resources?.type || RESOURCE_OPTIONS.type
-    const contentEncoding = resourceOptions.encoding || resources?.encoding || RESOURCE_OPTIONS.encoding
+    const name = locationOptions?.name || LOCATION_OPTIONS.name
+    const contentType = resources.type || resourceOptions?.type || RESOURCE_OPTIONS.type
+    const contentEncoding = resources.encoding || resourceOptions?.encoding || RESOURCE_OPTIONS.encoding
 
     setHeaders(res, {
         ...RESPONSE_HEADERS,
@@ -36,7 +42,7 @@ export async function defaultController(req: NowRequest, res: NowResponse): Prom
 
     const selector = single(req.query.selector)
     const fullPage = toBoolean(single(req.query.fullPage))
-    const type = IMAGE_TYPE[single(req.query.type)]
+    const type = IMAGE_CONTENT[single(req.query.type)]
     const encoding = IMAGE_ENCODING[single(req.query.encoding)]
 
     const routeOptions = { url }

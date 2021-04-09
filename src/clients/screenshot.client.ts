@@ -1,4 +1,10 @@
-import { ImageOptions, PageOptions, RequestOptions, ResourceOptions } from '../../typings/browser-types'
+import {
+    ImageOptions,
+    PlaywrightPageOptions,
+    PuppeteerPageOptions,
+    RequestOptions,
+    ResourceOptions,
+} from '../../typings/browser-types'
 
 import { profile } from '../utils/profiles'
 import { mergeProps } from '../utils/commons'
@@ -6,13 +12,9 @@ import { boxenLogs } from '../utils/loggers'
 import { serialize } from '../utils/serializers'
 import { createBrowserSession } from '../utils/sessions'
 
-const createScreenshot = async (parsedRequest: Required<RequestOptions>): Promise<Buffer | string | void> => {
-    boxenLogs(`>>> Generating screenshot with parameters: ${serialize(parsedRequest)}`)
-
-    return await getSessionScreenshot(parsedRequest)
-}
-
 const getSessionScreenshot = async (request: Required<RequestOptions>): Promise<Buffer | string | void> => {
+    boxenLogs(`>>> Generating screenshot with parameters: ${serialize(request)}`)
+
     const { routeOptions, imageOptions, resourceOptions, pageOptions } = request
 
     const session = await createBrowserSession()
@@ -20,7 +22,12 @@ const getSessionScreenshot = async (request: Required<RequestOptions>): Promise<
     try {
         await session.setup()
 
-        return await session.createScreenshot(routeOptions.url, imageOptions, resourceOptions, pageOptions)
+        return await session.createScreenshot(
+            routeOptions.url,
+            imageOptions,
+            resourceOptions,
+            pageOptions as PuppeteerPageOptions
+        )
     } finally {
         await session.teardown()
     }
@@ -33,8 +40,11 @@ export async function screenshotRenderer(request: RequestOptions): Promise<Buffe
         routeOptions: request.routeOptions,
         imageOptions: mergeProps<ImageOptions>(imageOptions, request.imageOptions),
         resourceOptions: mergeProps<ResourceOptions>(resourceOptions, request.resourceOptions),
-        pageOptions: mergeProps<PageOptions>(pageOptions, request.pageOptions),
+        pageOptions: mergeProps<PuppeteerPageOptions | PlaywrightPageOptions>(
+            pageOptions,
+            request.pageOptions
+        ),
     }
 
-    return await createScreenshot(requestData)
+    return await getSessionScreenshot(requestData)
 }

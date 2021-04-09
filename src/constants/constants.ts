@@ -7,22 +7,22 @@ import {
     ChromeBrowserOptions,
     ImageOptions,
     LocationOptions,
-    PageOptions,
+    PuppeteerPageOptions,
     ResourceOptions,
     ScreenshotOptions,
 } from '../../typings/browser-types'
 
-import { toEnum } from '../utils/commons'
+import { strToEnum } from '../utils/commons'
 
 /**
  * Image supported content types
  */
-export const IMAGE_TYPE = toEnum(['jpeg', 'png'])
+export const IMAGE_CONTENT = strToEnum(['jpeg', 'png'])
 
 /**
  * Image supported content encoding types
  */
-export const IMAGE_ENCODING = toEnum(['base64', 'binary'])
+export const IMAGE_ENCODING = strToEnum(['base64', 'binary'])
 
 /**
  * Output configuration options
@@ -42,9 +42,9 @@ export const PLAY_LAUNCH_OPTIONS: Readonly<PlayLaunchOptions> = {
 }
 
 /**
- * Page configuration options
+ * Puppeterr page configuration options
  */
-export const PAGE_OPTIONS: Readonly<PageOptions> = {
+export const PAGE_OPTIONS: Readonly<PuppeteerPageOptions> = {
     waitUntil: 'load',
 }
 

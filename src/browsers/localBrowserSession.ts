@@ -1,4 +1,5 @@
 import { Browser } from 'puppeteer'
+
 import { ChromeBrowserOptions } from '../../typings/browser-types'
 
 import BaseBrowserSession from './baseBrowserSession'

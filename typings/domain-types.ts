@@ -1,7 +1,7 @@
 import boxen from 'boxen'
 
 import { ScreenshotOptions } from './browser-types'
-//--------------------------------------------------------------------------------------------------
+
 /**
  * Headers
  * @desc Type representing headers
@@ -13,7 +13,7 @@ export type Headers = Record<string, number | string | string[]>
  * RouteOptions
  * @desc Type representing route configuration options
  */
-export interface RouteOptions {
+export type RouteOptions = {
     /**
      * Route base url.
      */
