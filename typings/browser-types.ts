@@ -1,21 +1,22 @@
 import { BrowserOptions, ChromeArgOptions, LaunchOptions, PuppeteerLifeCycleEvent } from 'puppeteer-core'
 import { LaunchOptions as PlayLaunchOptions } from 'playwright-chromium'
 
-import { ImageContent, ImageEncoding } from '../src/constants/constants'
 import { RouteOptions } from './domain-types'
+
+import { IMAGE_ENCODING, IMAGE_TYPE } from '../src/constants/constants'
 
 //--------------------------------------------------------------------------------------------------
 /**
  * ImageContentType
  * @desc Type representing supported image contents
  */
-export type ImageContentType = keyof typeof ImageContent
+export type ImageContentType = keyof typeof IMAGE_TYPE
 
 /**
  * ImageEncodingType
  * @desc Type representing supported image encodings
  */
-export type ImageEncodingType = keyof typeof ImageEncoding
+export type ImageEncodingType = keyof typeof IMAGE_ENCODING
 
 //--------------------------------------------------------------------------------------------------
 /**
@@ -30,13 +31,13 @@ export enum BrowserType {
 //--------------------------------------------------------------------------------------------------
 /**
  * ChromeBrowserOptions
- * @desc Type representing chrome browser options
+ * @desc Type representing chrome browser configuration options
  */
 export type ChromeBrowserOptions = LaunchOptions & ChromeArgOptions & BrowserOptions
 //--------------------------------------------------------------------------------------------------
 /**
  * PageOptions
- * @desc Type representing page options
+ * @desc Type representing page configuration options
  */
 export type PageOptions = {
     /**
@@ -53,10 +54,10 @@ export type PageOptions = {
      */
     readonly waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[]
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * PlayPageOptions
- * @desc Type representing play page options
+ * @desc Type representing play page configuration options
  */
 export type PlayPageOptions = {
     /**
@@ -74,6 +75,10 @@ export type PlayPageOptions = {
     readonly waitUntil?: 'load' | 'domcontentloaded' | 'networkidle'
 }
 //--------------------------------------------------------------------------------------------------
+/**
+ * LocationOptions
+ * @desc Type representing location configuration options
+ */
 export type LocationOptions = {
     /**
      * Generated image name.
@@ -85,6 +90,10 @@ export type LocationOptions = {
     readonly path: string
 }
 //--------------------------------------------------------------------------------------------------
+/**
+ * ImageOptions
+ * @desc Type representing image configuration options
+ */
 export type ImageOptions = {
     /**
      * Page width in pixels.
@@ -100,6 +109,10 @@ export type ImageOptions = {
     readonly deviceScaleFactor?: number
 }
 //--------------------------------------------------------------------------------------------------
+/**
+ * ImageClipOptions
+ * @desc Type representing image clip configuration options
+ */
 export type ImageClipOptions = {
     /**
      * page clip start X-position in pixels.
@@ -120,35 +133,39 @@ export type ImageClipOptions = {
 }
 
 //--------------------------------------------------------------------------------------------------
+/**
+ * ScreenshotOptions
+ * @desc Type representing screenshot configuration options
+ */
 export type ScreenshotOptions = {
     /**
      * Image configuration options.
      */
-    readonly imageOptions: ImageOptions
+    readonly imageOptions?: Partial<ImageOptions>
     /**
      * Image clip configuration options.
      */
-    readonly imageClipOptions?: ImageClipOptions
+    readonly imageClipOptions?: Partial<ImageClipOptions>
     /**
      * Play browser launch options.
      */
-    readonly launchOptions: PlayLaunchOptions
+    readonly playLaunchOptions?: Partial<PlayLaunchOptions>
     /**
      * Page configuration options.
      */
-    readonly pageOptions?: PageOptions | PlayPageOptions
+    readonly pageOptions?: Partial<PageOptions | PlayPageOptions>
     /**
      * Browser configuration options.
      */
-    readonly browserOptions: ChromeBrowserOptions
+    readonly browserOptions?: Partial<ChromeBrowserOptions>
     /**
      * Image location options.
      */
-    readonly locationOptions: Partial<LocationOptions>
+    readonly locationOptions?: Partial<LocationOptions>
     /**
      * Image resource options.
      */
-    readonly resourceOptions: Partial<ResourceOptions>
+    readonly resourceOptions?: Partial<ResourceOptions>
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -185,24 +202,24 @@ export type ResourceOptions = {
 
 //--------------------------------------------------------------------------------------------------
 /**
- * ParsedRequest
- * @desc Type representing parsed request
+ * RequestOptions
+ * @desc Type representing request configuration options
  */
-export type ParsedRequest = {
+export type RequestOptions = {
     /**
-     * Parsed image url.
+     * Request route options.
      */
     readonly routeOptions: RouteOptions
     /**
-     * Parsed image options.
+     * Request image options.
      */
     readonly imageOptions?: ImageOptions
     /**
-     * Parsed resource options.
+     * Request resource options.
      */
     readonly resourceOptions?: ResourceOptions
     /**
-     * Parsed page options.
+     * Request page options.
      */
     readonly pageOptions?: PageOptions
 }

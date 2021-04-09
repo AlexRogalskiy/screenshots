@@ -1,8 +1,8 @@
 /**
- * Profile
- * @desc Enumeration type representing supported profiles
+ * ProfilePattern
+ * @desc Enumeration type representing supported profile patterns
  */
-export enum Profile {
+export enum ProfilePattern {
     dev = 'dev',
     prod = 'prod',
     test = 'test',

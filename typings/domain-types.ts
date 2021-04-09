@@ -11,7 +11,7 @@ export type Headers = Record<string, number | string | string[]>
 //--------------------------------------------------------------------------------------------------
 /**
  * RouteOptions
- * @desc Type representing route options
+ * @desc Type representing route configuration options
  */
 export interface RouteOptions {
     /**
@@ -23,15 +23,15 @@ export interface RouteOptions {
 //--------------------------------------------------------------------------------------------------
 /**
  * ProfileOptions
- * @desc Type representing profile options
+ * @desc Type representing profile configuration options
  */
 export type ProfileOptions = {
     /**
-     * Route configuration options.
+     * Route options.
      */
     readonly routeOptions: Partial<RouteOptions>
     /**
-     * Screenshot configuration options.
+     * Screenshot options.
      */
     readonly screenshotOptions: Partial<ScreenshotOptions>
     /**

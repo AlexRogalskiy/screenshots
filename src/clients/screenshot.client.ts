@@ -1,4 +1,4 @@
-import { ImageOptions, PageOptions, ParsedRequest, ResourceOptions } from '../../typings/browser-types'
+import { ImageOptions, PageOptions, RequestOptions, ResourceOptions } from '../../typings/browser-types'
 
 import { profile } from '../utils/profiles'
 import { mergeProps } from '../utils/commons'
@@ -6,16 +6,14 @@ import { boxenLogs } from '../utils/loggers'
 import { serialize } from '../utils/serializers'
 import { createBrowserSession } from '../utils/sessions'
 
-const createScreenshot = async (parsedRequest: Required<ParsedRequest>): Promise<Buffer | string | void> => {
+const createScreenshot = async (parsedRequest: Required<RequestOptions>): Promise<Buffer | string | void> => {
     boxenLogs(`>>> Generating screenshot with parameters: ${serialize(parsedRequest)}`)
 
     return await getSessionScreenshot(parsedRequest)
 }
 
-const getSessionScreenshot = async (
-    parsedRequest: Required<ParsedRequest>
-): Promise<Buffer | string | void> => {
-    const { routeOptions, imageOptions, resourceOptions, pageOptions } = parsedRequest
+const getSessionScreenshot = async (request: Required<RequestOptions>): Promise<Buffer | string | void> => {
+    const { routeOptions, imageOptions, resourceOptions, pageOptions } = request
 
     const session = await createBrowserSession()
 
@@ -28,15 +26,15 @@ const getSessionScreenshot = async (
     }
 }
 
-export async function screenshotRenderer(parsedRequest: ParsedRequest): Promise<Buffer | string | void> {
+export async function screenshotRenderer(request: RequestOptions): Promise<Buffer | string | void> {
     const { imageOptions, resourceOptions, pageOptions } = profile.screenshotOptions
 
-    const request: Required<ParsedRequest> = {
-        routeOptions: parsedRequest.routeOptions,
-        imageOptions: mergeProps<ImageOptions>(imageOptions, parsedRequest.imageOptions),
-        resourceOptions: mergeProps<ResourceOptions>(resourceOptions, parsedRequest.resourceOptions),
-        pageOptions: mergeProps<PageOptions>(pageOptions, parsedRequest.pageOptions),
+    const requestData: Required<RequestOptions> = {
+        routeOptions: request.routeOptions,
+        imageOptions: mergeProps<ImageOptions>(imageOptions, request.imageOptions),
+        resourceOptions: mergeProps<ResourceOptions>(resourceOptions, request.resourceOptions),
+        pageOptions: mergeProps<PageOptions>(pageOptions, request.pageOptions),
     }
 
-    return await createScreenshot(request)
+    return await createScreenshot(requestData)
 }

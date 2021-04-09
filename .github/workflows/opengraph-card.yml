@@ -7,7 +7,7 @@ jobs:
   generate-opengraph-card:
     env:
       BASE_PATH: https://og-image.now.sh
-      QUERY_PATH: _**Screenshots**_%3Cbr%3E_@AlexRogalskiy/screenshots_
+      QUERY_PATH: _**Styled%20Screens**_%3Cbr%3E_@AlexRogalskiy/screenshots_
       THEME: light
       MARKDOWN_ENABLED: 1
       FONT_SIZE: 75px
