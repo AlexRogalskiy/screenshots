@@ -4064,7 +4064,8 @@
         "devtools-protocol": {
             "version": "0.0.847576",
             "resolved": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.847576.tgz",
-            "integrity": "sha512-0M8kobnSQE0Jmly7Mhbeq0W/PpZfnuK+WjN2ZRVPbGqYwCHCioAVp84H0TcLimgECcN5H976y5QiXMGBC9JKmg=="
+            "integrity": "sha512-0M8kobnSQE0Jmly7Mhbeq0W/PpZfnuK+WjN2ZRVPbGqYwCHCioAVp84H0TcLimgECcN5H976y5QiXMGBC9JKmg==",
+            "dev": true
         },
         "dezalgo": {
             "version": "1.0.3",
@@ -13581,12 +13582,12 @@
             }
         },
         "puppeteer-core": {
-            "version": "7.0.4",
-            "resolved": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-7.0.4.tgz",
-            "integrity": "sha512-c7tcL3W0HGDOwj2KcytR251KbcOhlD/yPxVswA4Paqm8Dy9oLT4m3c2QRvOxmGixxn2YNimQ5264vuXKNspRdg==",
+            "version": "9.1.1",
+            "resolved": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-9.1.1.tgz",
+            "integrity": "sha512-zbedbitVIGhmgz0nt7eIdLsnaoVZSlNJfBivqm2w67T8LR2bU1dvnruDZ8nQO0zn++Iet7zHbAOdnuS5+H2E7A==",
             "requires": {
                 "debug": "^4.1.0",
-                "devtools-protocol": "0.0.847576",
+                "devtools-protocol": "0.0.869402",
                 "extract-zip": "^2.0.0",
                 "https-proxy-agent": "^5.0.0",
                 "node-fetch": "^2.6.1",
@@ -13599,6 +13600,11 @@
                 "ws": "^7.2.3"
             },
             "dependencies": {
+                "devtools-protocol": {
+                    "version": "0.0.869402",
+                    "resolved": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.869402.tgz",
+                    "integrity": "sha512-VvlVYY+VDJe639yHs5PHISzdWTLL3Aw8rO4cvUtwvoxFd6FHbE4OpHHcde52M6096uYYazAmd4l0o5VuFRO2WA=="
+                },
                 "pkg-dir": {
                     "version": "4.2.0",
                     "resolved": "https://registry.npmjs.org/pkg-dir/-/pkg-dir-4.2.0.tgz",
