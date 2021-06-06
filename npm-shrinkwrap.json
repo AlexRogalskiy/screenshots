@@ -2458,11 +2458,11 @@
             "integrity": "sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg=="
         },
         "chrome-aws-lambda": {
-            "version": "7.0.0",
-            "resolved": "https://registry.npmjs.org/chrome-aws-lambda/-/chrome-aws-lambda-7.0.0.tgz",
-            "integrity": "sha512-GbYXRPYtaA0DLfmxQpuZw1SKTP7rOA4UXiATwiFRJ4Ea6PBYSzqK0YjS7B2WimUBe//ybPfNpPIs8A3WpF0xvA==",
+            "version": "9.1.0",
+            "resolved": "https://registry.npmjs.org/chrome-aws-lambda/-/chrome-aws-lambda-9.1.0.tgz",
+            "integrity": "sha512-y6MOarSzL5LmDv8sWUdDe4wHuAAEeWMlCbLwmL6Bj+pBPava37UuEPbWD5YAXyJx6oHoC0efLGqYDi56k4KMUQ==",
             "requires": {
-                "lambdafs": "^2.0.2"
+                "lambdafs": "^2.0.3"
             }
         },
         "ci-info": {
@@ -3492,6 +3492,12 @@
                     "dev": true
                 }
             }
+        },
+        "conventional-commit-types": {
+            "version": "2.3.0",
+            "resolved": "https://registry.npmjs.org/conventional-commit-types/-/conventional-commit-types-2.3.0.tgz",
+            "integrity": "sha512-6iB39PrcGYdz0n3z31kj6/Km6mK9hm9oMRhwcLnKxE7WNoeRKZbTAobliKrbYZ5jqyCvtcVEfjCiaEzhL3AVmQ==",
+            "dev": true
         },
         "conventional-commits-filter": {
             "version": "2.0.7",
@@ -5213,6 +5219,12 @@
                 "resolve-dir": "^0.1.0"
             }
         },
+        "find-parent-dir": {
+            "version": "0.3.1",
+            "resolved": "https://registry.npmjs.org/find-parent-dir/-/find-parent-dir-0.3.1.tgz",
+            "integrity": "sha512-o4UcykWV/XN9wm+jMEtWLPlV8RXCZnMhQI6F6OdHeSez7iiJWePw8ijOlskJZMsaQoGR/b7dH6lO02HhaTN7+A==",
+            "dev": true
+        },
         "find-pkg": {
             "version": "0.1.2",
             "resolved": "https://registry.npmjs.org/find-pkg/-/find-pkg-0.1.2.tgz",
@@ -5257,6 +5269,30 @@
             "dev": true,
             "requires": {
                 "semver-regex": "^3.1.2"
+            }
+        },
+        "findup": {
+            "version": "0.1.5",
+            "resolved": "https://registry.npmjs.org/findup/-/findup-0.1.5.tgz",
+            "integrity": "sha1-itkpozk7rGJ5V6fl3kYjsGsOLOs=",
+            "dev": true,
+            "requires": {
+                "colors": "~0.6.0-1",
+                "commander": "~2.1.0"
+            },
+            "dependencies": {
+                "colors": {
+                    "version": "0.6.2",
+                    "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz",
+                    "integrity": "sha1-JCP+ZnisDF2uiFLl0OW+CMmXq8w=",
+                    "dev": true
+                },
+                "commander": {
+                    "version": "2.1.0",
+                    "resolved": "https://registry.npmjs.org/commander/-/commander-2.1.0.tgz",
+                    "integrity": "sha1-0SG7roYNmZKj1Re6lvVliOR8Z4E=",
+                    "dev": true
+                }
             }
         },
         "flat-cache": {
@@ -7905,9 +7941,9 @@
             "dev": true
         },
         "lambdafs": {
-            "version": "2.0.2",
-            "resolved": "https://registry.npmjs.org/lambdafs/-/lambdafs-2.0.2.tgz",
-            "integrity": "sha512-gr4FQ1eqNZ4k+VmdK1ZzyrcQFv6Hf2MlIgrBq0hXtgMpxU9hG/uKWsNX/FhfugB2aSucJkT4U9NrIVmnVG8NUg==",
+            "version": "2.0.3",
+            "resolved": "https://registry.npmjs.org/lambdafs/-/lambdafs-2.0.3.tgz",
+            "integrity": "sha512-5YWwZA/QKk09GdfcJ/ABVO+bpFoGlnTBa5jmyM8Kt9yIzl2lDDVBPLK+Aenq2UEcuDpqxXIYI5zLB7VZNepTrg==",
             "requires": {
                 "tar-fs": "^2.1.1"
             },
@@ -7917,12 +7953,23 @@
                     "bundled": true
                 },
                 "bl": {
-                    "version": "4.0.3",
+                    "version": "4.1.0",
                     "bundled": true,
                     "requires": {
                         "buffer": "^5.5.0",
                         "inherits": "^2.0.4",
                         "readable-stream": "^3.4.0"
+                    },
+                    "dependencies": {
+                        "readable-stream": {
+                            "version": "3.6.0",
+                            "bundled": true,
+                            "requires": {
+                                "inherits": "^2.0.3",
+                                "string_decoder": "^1.1.1",
+                                "util-deprecate": "^1.0.1"
+                            }
+                        }
                     }
                 },
                 "buffer": {
@@ -7975,24 +8022,17 @@
                         "once": "^1.3.1"
                     }
                 },
-                "readable-stream": {
-                    "version": "3.6.0",
-                    "bundled": true,
-                    "requires": {
-                        "inherits": "^2.0.3",
-                        "string_decoder": "^1.1.1",
-                        "util-deprecate": "^1.0.1"
-                    }
-                },
-                "safe-buffer": {
-                    "version": "5.2.1",
-                    "bundled": true
-                },
                 "string_decoder": {
-                    "version": "1.3.0",
+                    "version": "1.1.1",
                     "bundled": true,
                     "requires": {
-                        "safe-buffer": "~5.2.0"
+                        "safe-buffer": "~5.1.0"
+                    },
+                    "dependencies": {
+                        "safe-buffer": {
+                            "version": "5.1.2",
+                            "bundled": true
+                        }
                     }
                 },
                 "tar-fs": {
@@ -8006,7 +8046,7 @@
                     }
                 },
                 "tar-stream": {
-                    "version": "2.1.4",
+                    "version": "2.2.0",
                     "bundled": true,
                     "requires": {
                         "bl": "^4.0.3",
@@ -8014,6 +8054,17 @@
                         "fs-constants": "^1.0.0",
                         "inherits": "^2.0.3",
                         "readable-stream": "^3.1.1"
+                    },
+                    "dependencies": {
+                        "readable-stream": {
+                            "version": "3.6.0",
+                            "bundled": true,
+                            "requires": {
+                                "inherits": "^2.0.3",
+                                "string_decoder": "^1.1.1",
+                                "util-deprecate": "^1.0.1"
+                            }
+                        }
                     }
                 },
                 "util-deprecate": {
@@ -17408,6 +17459,26 @@
                     "version": "0.7.3",
                     "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.7.3.tgz",
                     "integrity": "sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==",
+                    "dev": true
+                }
+            }
+        },
+        "validate-commit-msg": {
+            "version": "2.14.0",
+            "resolved": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.14.0.tgz",
+            "integrity": "sha1-5Tg2kQEsuycNzAvCpO/+vhSJDqw=",
+            "dev": true,
+            "requires": {
+                "conventional-commit-types": "^2.0.0",
+                "find-parent-dir": "^0.3.0",
+                "findup": "0.1.5",
+                "semver-regex": "1.0.0"
+            },
+            "dependencies": {
+                "semver-regex": {
+                    "version": "1.0.0",
+                    "resolved": "https://registry.npmjs.org/semver-regex/-/semver-regex-1.0.0.tgz",
+                    "integrity": "sha1-kqSWkGX5xwxpR1PVUkj8aPj2Usk=",
                     "dev": true
                 }
             }
