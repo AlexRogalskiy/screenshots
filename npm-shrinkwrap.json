@@ -3493,6 +3493,12 @@
                 }
             }
         },
+        "conventional-commit-types": {
+            "version": "2.3.0",
+            "resolved": "https://registry.npmjs.org/conventional-commit-types/-/conventional-commit-types-2.3.0.tgz",
+            "integrity": "sha512-6iB39PrcGYdz0n3z31kj6/Km6mK9hm9oMRhwcLnKxE7WNoeRKZbTAobliKrbYZ5jqyCvtcVEfjCiaEzhL3AVmQ==",
+            "dev": true
+        },
         "conventional-commits-filter": {
             "version": "2.0.7",
             "resolved": "https://registry.npmjs.org/conventional-commits-filter/-/conventional-commits-filter-2.0.7.tgz",
@@ -5213,6 +5219,12 @@
                 "resolve-dir": "^0.1.0"
             }
         },
+        "find-parent-dir": {
+            "version": "0.3.1",
+            "resolved": "https://registry.npmjs.org/find-parent-dir/-/find-parent-dir-0.3.1.tgz",
+            "integrity": "sha512-o4UcykWV/XN9wm+jMEtWLPlV8RXCZnMhQI6F6OdHeSez7iiJWePw8ijOlskJZMsaQoGR/b7dH6lO02HhaTN7+A==",
+            "dev": true
+        },
         "find-pkg": {
             "version": "0.1.2",
             "resolved": "https://registry.npmjs.org/find-pkg/-/find-pkg-0.1.2.tgz",
@@ -5257,6 +5269,30 @@
             "dev": true,
             "requires": {
                 "semver-regex": "^3.1.2"
+            }
+        },
+        "findup": {
+            "version": "0.1.5",
+            "resolved": "https://registry.npmjs.org/findup/-/findup-0.1.5.tgz",
+            "integrity": "sha1-itkpozk7rGJ5V6fl3kYjsGsOLOs=",
+            "dev": true,
+            "requires": {
+                "colors": "~0.6.0-1",
+                "commander": "~2.1.0"
+            },
+            "dependencies": {
+                "colors": {
+                    "version": "0.6.2",
+                    "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz",
+                    "integrity": "sha1-JCP+ZnisDF2uiFLl0OW+CMmXq8w=",
+                    "dev": true
+                },
+                "commander": {
+                    "version": "2.1.0",
+                    "resolved": "https://registry.npmjs.org/commander/-/commander-2.1.0.tgz",
+                    "integrity": "sha1-0SG7roYNmZKj1Re6lvVliOR8Z4E=",
+                    "dev": true
+                }
             }
         },
         "flat-cache": {
@@ -16768,22 +16804,80 @@
             "dev": true
         },
         "ts-jest": {
-            "version": "26.5.1",
-            "resolved": "https://registry.npmjs.org/ts-jest/-/ts-jest-26.5.1.tgz",
-            "integrity": "sha512-G7Rmo3OJMvlqE79amJX8VJKDiRcd7/r61wh9fnvvG8cAjhA9edklGw/dCxRSQmfZ/z8NDums5srSVgwZos1qfg==",
+            "version": "27.0.3",
+            "resolved": "https://registry.npmjs.org/ts-jest/-/ts-jest-27.0.3.tgz",
+            "integrity": "sha512-U5rdMjnYam9Ucw+h0QvtNDbc5+88nxt7tbIvqaZUhFrfG4+SkWhMXjejCLVGcpILTPuV+H3W/GZDZrnZFpPeXw==",
             "dev": true,
             "requires": {
-                "@types/jest": "26.x",
                 "bs-logger": "0.x",
                 "buffer-from": "1.x",
                 "fast-json-stable-stringify": "2.x",
-                "jest-util": "^26.1.0",
+                "jest-util": "^27.0.0",
                 "json5": "2.x",
                 "lodash": "4.x",
                 "make-error": "1.x",
                 "mkdirp": "1.x",
                 "semver": "7.x",
                 "yargs-parser": "20.x"
+            },
+            "dependencies": {
+                "@jest/types": {
+                    "version": "27.0.2",
+                    "resolved": "https://registry.npmjs.org/@jest/types/-/types-27.0.2.tgz",
+                    "integrity": "sha512-XpjCtJ/99HB4PmyJ2vgmN7vT+JLP7RW1FBT9RgnMFS4Dt7cvIyBee8O3/j98aUZ34ZpenPZFqmaaObWSeL65dg==",
+                    "dev": true,
+                    "requires": {
+                        "@types/istanbul-lib-coverage": "^2.0.0",
+                        "@types/istanbul-reports": "^3.0.0",
+                        "@types/node": "*",
+                        "@types/yargs": "^16.0.0",
+                        "chalk": "^4.0.0"
+                    }
+                },
+                "@types/yargs": {
+                    "version": "16.0.3",
+                    "resolved": "https://registry.npmjs.org/@types/yargs/-/yargs-16.0.3.tgz",
+                    "integrity": "sha512-YlFfTGS+zqCgXuXNV26rOIeETOkXnGQXP/pjjL9P0gO/EP9jTmc7pUBhx+jVEIxpq41RX33GQ7N3DzOSfZoglQ==",
+                    "dev": true,
+                    "requires": {
+                        "@types/yargs-parser": "*"
+                    }
+                },
+                "ci-info": {
+                    "version": "3.2.0",
+                    "resolved": "https://registry.npmjs.org/ci-info/-/ci-info-3.2.0.tgz",
+                    "integrity": "sha512-dVqRX7fLUm8J6FgHJ418XuIgDLZDkYcDFTeL6TA2gt5WlIZUQrrH6EZrNClwT/H0FateUsZkGIOPRrLbP+PR9A==",
+                    "dev": true
+                },
+                "is-ci": {
+                    "version": "3.0.0",
+                    "resolved": "https://registry.npmjs.org/is-ci/-/is-ci-3.0.0.tgz",
+                    "integrity": "sha512-kDXyttuLeslKAHYL/K28F2YkM3x5jvFPEw3yXbRptXydjD9rpLEz+C5K5iutY9ZiUu6AP41JdvRQwF4Iqs4ZCQ==",
+                    "dev": true,
+                    "requires": {
+                        "ci-info": "^3.1.1"
+                    }
+                },
+                "jest-util": {
+                    "version": "27.0.2",
+                    "resolved": "https://registry.npmjs.org/jest-util/-/jest-util-27.0.2.tgz",
+                    "integrity": "sha512-1d9uH3a00OFGGWSibpNYr+jojZ6AckOMCXV2Z4K3YXDnzpkAaXQyIpY14FOJPiUmil7CD+A6Qs+lnnh6ctRbIA==",
+                    "dev": true,
+                    "requires": {
+                        "@jest/types": "^27.0.2",
+                        "@types/node": "*",
+                        "chalk": "^4.0.0",
+                        "graceful-fs": "^4.2.4",
+                        "is-ci": "^3.0.0",
+                        "picomatch": "^2.2.3"
+                    }
+                },
+                "picomatch": {
+                    "version": "2.3.0",
+                    "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-2.3.0.tgz",
+                    "integrity": "sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==",
+                    "dev": true
+                }
             }
         },
         "ts-node": {
@@ -17408,6 +17502,26 @@
                     "version": "0.7.3",
                     "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.7.3.tgz",
                     "integrity": "sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==",
+                    "dev": true
+                }
+            }
+        },
+        "validate-commit-msg": {
+            "version": "2.14.0",
+            "resolved": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.14.0.tgz",
+            "integrity": "sha1-5Tg2kQEsuycNzAvCpO/+vhSJDqw=",
+            "dev": true,
+            "requires": {
+                "conventional-commit-types": "^2.0.0",
+                "find-parent-dir": "^0.3.0",
+                "findup": "0.1.5",
+                "semver-regex": "1.0.0"
+            },
+            "dependencies": {
+                "semver-regex": {
+                    "version": "1.0.0",
+                    "resolved": "https://registry.npmjs.org/semver-regex/-/semver-regex-1.0.0.tgz",
+                    "integrity": "sha1-kqSWkGX5xwxpR1PVUkj8aPj2Usk=",
                     "dev": true
                 }
             }
