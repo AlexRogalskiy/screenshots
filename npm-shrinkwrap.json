@@ -3493,6 +3493,12 @@
                 }
             }
         },
+        "conventional-commit-types": {
+            "version": "2.3.0",
+            "resolved": "https://registry.npmjs.org/conventional-commit-types/-/conventional-commit-types-2.3.0.tgz",
+            "integrity": "sha512-6iB39PrcGYdz0n3z31kj6/Km6mK9hm9oMRhwcLnKxE7WNoeRKZbTAobliKrbYZ5jqyCvtcVEfjCiaEzhL3AVmQ==",
+            "dev": true
+        },
         "conventional-commits-filter": {
             "version": "2.0.7",
             "resolved": "https://registry.npmjs.org/conventional-commits-filter/-/conventional-commits-filter-2.0.7.tgz",
@@ -4064,7 +4070,8 @@
         "devtools-protocol": {
             "version": "0.0.847576",
             "resolved": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.847576.tgz",
-            "integrity": "sha512-0M8kobnSQE0Jmly7Mhbeq0W/PpZfnuK+WjN2ZRVPbGqYwCHCioAVp84H0TcLimgECcN5H976y5QiXMGBC9JKmg=="
+            "integrity": "sha512-0M8kobnSQE0Jmly7Mhbeq0W/PpZfnuK+WjN2ZRVPbGqYwCHCioAVp84H0TcLimgECcN5H976y5QiXMGBC9JKmg==",
+            "dev": true
         },
         "dezalgo": {
             "version": "1.0.3",
@@ -5213,6 +5220,12 @@
                 "resolve-dir": "^0.1.0"
             }
         },
+        "find-parent-dir": {
+            "version": "0.3.1",
+            "resolved": "https://registry.npmjs.org/find-parent-dir/-/find-parent-dir-0.3.1.tgz",
+            "integrity": "sha512-o4UcykWV/XN9wm+jMEtWLPlV8RXCZnMhQI6F6OdHeSez7iiJWePw8ijOlskJZMsaQoGR/b7dH6lO02HhaTN7+A==",
+            "dev": true
+        },
         "find-pkg": {
             "version": "0.1.2",
             "resolved": "https://registry.npmjs.org/find-pkg/-/find-pkg-0.1.2.tgz",
@@ -5257,6 +5270,30 @@
             "dev": true,
             "requires": {
                 "semver-regex": "^3.1.2"
+            }
+        },
+        "findup": {
+            "version": "0.1.5",
+            "resolved": "https://registry.npmjs.org/findup/-/findup-0.1.5.tgz",
+            "integrity": "sha1-itkpozk7rGJ5V6fl3kYjsGsOLOs=",
+            "dev": true,
+            "requires": {
+                "colors": "~0.6.0-1",
+                "commander": "~2.1.0"
+            },
+            "dependencies": {
+                "colors": {
+                    "version": "0.6.2",
+                    "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz",
+                    "integrity": "sha1-JCP+ZnisDF2uiFLl0OW+CMmXq8w=",
+                    "dev": true
+                },
+                "commander": {
+                    "version": "2.1.0",
+                    "resolved": "https://registry.npmjs.org/commander/-/commander-2.1.0.tgz",
+                    "integrity": "sha1-0SG7roYNmZKj1Re6lvVliOR8Z4E=",
+                    "dev": true
+                }
             }
         },
         "flat-cache": {
@@ -8859,8 +8896,7 @@
         "minimist": {
             "version": "1.2.5",
             "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz",
-            "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==",
-            "dev": true
+            "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw=="
         },
         "minimist-options": {
             "version": "3.0.2",
@@ -8915,7 +8951,8 @@
         "mkdirp-classic": {
             "version": "0.5.3",
             "resolved": "https://registry.npmjs.org/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz",
-            "integrity": "sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A=="
+            "integrity": "sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==",
+            "dev": true
         },
         "modify-values": {
             "version": "1.0.1",
@@ -13581,24 +13618,37 @@
             }
         },
         "puppeteer-core": {
-            "version": "7.0.4",
-            "resolved": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-7.0.4.tgz",
-            "integrity": "sha512-c7tcL3W0HGDOwj2KcytR251KbcOhlD/yPxVswA4Paqm8Dy9oLT4m3c2QRvOxmGixxn2YNimQ5264vuXKNspRdg==",
+            "version": "10.1.0",
+            "resolved": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-10.1.0.tgz",
+            "integrity": "sha512-x2yDSJI/PRiWhDqAt1jd4rhTotxwjwKzHLIIqD2MlJ+TmzGJfBY9snAGIVXJwkWfKJg+Ef5xupdK0EbHDqBpFw==",
             "requires": {
-                "debug": "^4.1.0",
-                "devtools-protocol": "0.0.847576",
-                "extract-zip": "^2.0.0",
-                "https-proxy-agent": "^5.0.0",
-                "node-fetch": "^2.6.1",
-                "pkg-dir": "^4.2.0",
-                "progress": "^2.0.1",
-                "proxy-from-env": "^1.1.0",
-                "rimraf": "^3.0.2",
-                "tar-fs": "^2.0.0",
-                "unbzip2-stream": "^1.3.3",
-                "ws": "^7.2.3"
+                "debug": "4.3.1",
+                "devtools-protocol": "0.0.883894",
+                "extract-zip": "2.0.1",
+                "https-proxy-agent": "5.0.0",
+                "node-fetch": "2.6.1",
+                "pkg-dir": "4.2.0",
+                "progress": "2.0.1",
+                "proxy-from-env": "1.1.0",
+                "rimraf": "3.0.2",
+                "tar-fs": "2.0.0",
+                "unbzip2-stream": "1.3.3",
+                "ws": "7.4.6"
             },
             "dependencies": {
+                "devtools-protocol": {
+                    "version": "0.0.883894",
+                    "resolved": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.883894.tgz",
+                    "integrity": "sha512-33idhm54QJzf3Q7QofMgCvIVSd2o9H3kQPWaKT/fhoZh+digc+WSiMhbkeG3iN79WY4Hwr9G05NpbhEVrsOYAg=="
+                },
+                "mkdirp": {
+                    "version": "0.5.5",
+                    "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz",
+                    "integrity": "sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==",
+                    "requires": {
+                        "minimist": "^1.2.5"
+                    }
+                },
                 "pkg-dir": {
                     "version": "4.2.0",
                     "resolved": "https://registry.npmjs.org/pkg-dir/-/pkg-dir-4.2.0.tgz",
@@ -13606,6 +13656,36 @@
                     "requires": {
                         "find-up": "^4.0.0"
                     }
+                },
+                "progress": {
+                    "version": "2.0.1",
+                    "resolved": "https://registry.npmjs.org/progress/-/progress-2.0.1.tgz",
+                    "integrity": "sha512-OE+a6vzqazc+K6LxJrX5UPyKFvGnL5CYmq2jFGNIBWHpc4QyE49/YOumcrpQFJpfejmvRtbJzgO1zPmMCqlbBg=="
+                },
+                "tar-fs": {
+                    "version": "2.0.0",
+                    "resolved": "https://registry.npmjs.org/tar-fs/-/tar-fs-2.0.0.tgz",
+                    "integrity": "sha512-vaY0obB6Om/fso8a8vakQBzwholQ7v5+uy+tF3Ozvxv1KNezmVQAiWtcNmMHFSFPqL3dJA8ha6gdtFbfX9mcxA==",
+                    "requires": {
+                        "chownr": "^1.1.1",
+                        "mkdirp": "^0.5.1",
+                        "pump": "^3.0.0",
+                        "tar-stream": "^2.0.0"
+                    }
+                },
+                "unbzip2-stream": {
+                    "version": "1.3.3",
+                    "resolved": "https://registry.npmjs.org/unbzip2-stream/-/unbzip2-stream-1.3.3.tgz",
+                    "integrity": "sha512-fUlAF7U9Ah1Q6EieQ4x4zLNejrRvDWUYmxXUpN3uziFYCHapjWFaCAnreY9bGgxzaMCFAPPpYNng57CypwJVhg==",
+                    "requires": {
+                        "buffer": "^5.2.1",
+                        "through": "^2.3.8"
+                    }
+                },
+                "ws": {
+                    "version": "7.4.6",
+                    "resolved": "https://registry.npmjs.org/ws/-/ws-7.4.6.tgz",
+                    "integrity": "sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A=="
                 }
             }
         },
@@ -16452,6 +16532,7 @@
             "version": "2.1.1",
             "resolved": "https://registry.npmjs.org/tar-fs/-/tar-fs-2.1.1.tgz",
             "integrity": "sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==",
+            "dev": true,
             "requires": {
                 "chownr": "^1.1.1",
                 "mkdirp-classic": "^0.5.2",
@@ -16955,6 +17036,7 @@
             "version": "1.4.3",
             "resolved": "https://registry.npmjs.org/unbzip2-stream/-/unbzip2-stream-1.4.3.tgz",
             "integrity": "sha512-mlExGW4w71ebDJviH16lQLtZS32VKqsSfk80GCfUlwT/4/hNRFsoscrF/c++9xinkMzECL1uL9DDwXqFWkruPg==",
+            "dev": true,
             "requires": {
                 "buffer": "^5.2.1",
                 "through": "^2.3.8"
@@ -17408,6 +17490,26 @@
                     "version": "0.7.3",
                     "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.7.3.tgz",
                     "integrity": "sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==",
+                    "dev": true
+                }
+            }
+        },
+        "validate-commit-msg": {
+            "version": "2.14.0",
+            "resolved": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.14.0.tgz",
+            "integrity": "sha1-5Tg2kQEsuycNzAvCpO/+vhSJDqw=",
+            "dev": true,
+            "requires": {
+                "conventional-commit-types": "^2.0.0",
+                "find-parent-dir": "^0.3.0",
+                "findup": "0.1.5",
+                "semver-regex": "1.0.0"
+            },
+            "dependencies": {
+                "semver-regex": {
+                    "version": "1.0.0",
+                    "resolved": "https://registry.npmjs.org/semver-regex/-/semver-regex-1.0.0.tgz",
+                    "integrity": "sha1-kqSWkGX5xwxpR1PVUkj8aPj2Usk=",
                     "dev": true
                 }
             }
