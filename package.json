@@ -67,7 +67,7 @@
         "@vercel/node": "^1.9.0",
         "boxen": "^5.0.0",
         "conventional-changelog-cli": "^2.0.0",
-        "coveralls": "^3.0.0",
+        "coveralls": "3.1.1",
         "dateformat": "^4.5.1",
         "del-cli": "3.0.0",
         "eslint": "^7.18.0",
