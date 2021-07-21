@@ -3493,6 +3493,12 @@
                 }
             }
         },
+        "conventional-commit-types": {
+            "version": "2.3.0",
+            "resolved": "https://registry.npmjs.org/conventional-commit-types/-/conventional-commit-types-2.3.0.tgz",
+            "integrity": "sha512-6iB39PrcGYdz0n3z31kj6/Km6mK9hm9oMRhwcLnKxE7WNoeRKZbTAobliKrbYZ5jqyCvtcVEfjCiaEzhL3AVmQ==",
+            "dev": true
+        },
         "conventional-commits-filter": {
             "version": "2.0.7",
             "resolved": "https://registry.npmjs.org/conventional-commits-filter/-/conventional-commits-filter-2.0.7.tgz",
@@ -4536,47 +4542,12 @@
             }
         },
         "eslint-plugin-jest": {
-            "version": "23.20.0",
-            "resolved": "https://registry.npmjs.org/eslint-plugin-jest/-/eslint-plugin-jest-23.20.0.tgz",
-            "integrity": "sha512-+6BGQt85OREevBDWCvhqj1yYA4+BFK4XnRZSGJionuEYmcglMZYLNNBBemwzbqUAckURaHdJSBcjHPyrtypZOw==",
+            "version": "24.4.0",
+            "resolved": "https://registry.npmjs.org/eslint-plugin-jest/-/eslint-plugin-jest-24.4.0.tgz",
+            "integrity": "sha512-8qnt/hgtZ94E9dA6viqfViKBfkJwFHXgJmTWlMGDgunw1XJEGqm3eiPjDsTanM3/u/3Az82nyQM9GX7PM/QGmg==",
             "dev": true,
             "requires": {
-                "@typescript-eslint/experimental-utils": "^2.5.0"
-            },
-            "dependencies": {
-                "@typescript-eslint/experimental-utils": {
-                    "version": "2.34.0",
-                    "resolved": "https://registry.npmjs.org/@typescript-eslint/experimental-utils/-/experimental-utils-2.34.0.tgz",
-                    "integrity": "sha512-eS6FTkq+wuMJ+sgtuNTtcqavWXqsflWcfBnlYhg/nS4aZ1leewkXGbvBhaapn1q6qf4M71bsR1tez5JTRMuqwA==",
-                    "dev": true,
-                    "requires": {
-                        "@types/json-schema": "^7.0.3",
-                        "@typescript-eslint/typescript-estree": "2.34.0",
-                        "eslint-scope": "^5.0.0",
-                        "eslint-utils": "^2.0.0"
-                    }
-                },
-                "@typescript-eslint/typescript-estree": {
-                    "version": "2.34.0",
-                    "resolved": "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-2.34.0.tgz",
-                    "integrity": "sha512-OMAr+nJWKdlVM9LOqCqh3pQQPwxHAN7Du8DR6dmwCrAmxtiXQnhHJ6tBNtf+cggqfo51SG/FCwnKhXCIM7hnVg==",
-                    "dev": true,
-                    "requires": {
-                        "debug": "^4.1.1",
-                        "eslint-visitor-keys": "^1.1.0",
-                        "glob": "^7.1.6",
-                        "is-glob": "^4.0.1",
-                        "lodash": "^4.17.15",
-                        "semver": "^7.3.2",
-                        "tsutils": "^3.17.1"
-                    }
-                },
-                "eslint-visitor-keys": {
-                    "version": "1.3.0",
-                    "resolved": "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-1.3.0.tgz",
-                    "integrity": "sha512-6J72N8UNa462wa/KFODt/PJ3IU60SDpC3QXC1Hjc1BXXpfL2C9R5+AU7jhe0F6GREqVMh4Juu+NY7xn+6dipUQ==",
-                    "dev": true
-                }
+                "@typescript-eslint/experimental-utils": "^4.0.1"
             }
         },
         "eslint-plugin-node": {
@@ -5213,6 +5184,12 @@
                 "resolve-dir": "^0.1.0"
             }
         },
+        "find-parent-dir": {
+            "version": "0.3.1",
+            "resolved": "https://registry.npmjs.org/find-parent-dir/-/find-parent-dir-0.3.1.tgz",
+            "integrity": "sha512-o4UcykWV/XN9wm+jMEtWLPlV8RXCZnMhQI6F6OdHeSez7iiJWePw8ijOlskJZMsaQoGR/b7dH6lO02HhaTN7+A==",
+            "dev": true
+        },
         "find-pkg": {
             "version": "0.1.2",
             "resolved": "https://registry.npmjs.org/find-pkg/-/find-pkg-0.1.2.tgz",
@@ -5257,6 +5234,30 @@
             "dev": true,
             "requires": {
                 "semver-regex": "^3.1.2"
+            }
+        },
+        "findup": {
+            "version": "0.1.5",
+            "resolved": "https://registry.npmjs.org/findup/-/findup-0.1.5.tgz",
+            "integrity": "sha1-itkpozk7rGJ5V6fl3kYjsGsOLOs=",
+            "dev": true,
+            "requires": {
+                "colors": "~0.6.0-1",
+                "commander": "~2.1.0"
+            },
+            "dependencies": {
+                "colors": {
+                    "version": "0.6.2",
+                    "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz",
+                    "integrity": "sha1-JCP+ZnisDF2uiFLl0OW+CMmXq8w=",
+                    "dev": true
+                },
+                "commander": {
+                    "version": "2.1.0",
+                    "resolved": "https://registry.npmjs.org/commander/-/commander-2.1.0.tgz",
+                    "integrity": "sha1-0SG7roYNmZKj1Re6lvVliOR8Z4E=",
+                    "dev": true
+                }
             }
         },
         "flat-cache": {
@@ -17408,6 +17409,26 @@
                     "version": "0.7.3",
                     "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.7.3.tgz",
                     "integrity": "sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==",
+                    "dev": true
+                }
+            }
+        },
+        "validate-commit-msg": {
+            "version": "2.14.0",
+            "resolved": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.14.0.tgz",
+            "integrity": "sha1-5Tg2kQEsuycNzAvCpO/+vhSJDqw=",
+            "dev": true,
+            "requires": {
+                "conventional-commit-types": "^2.0.0",
+                "find-parent-dir": "^0.3.0",
+                "findup": "0.1.5",
+                "semver-regex": "1.0.0"
+            },
+            "dependencies": {
+                "semver-regex": {
+                    "version": "1.0.0",
+                    "resolved": "https://registry.npmjs.org/semver-regex/-/semver-regex-1.0.0.tgz",
+                    "integrity": "sha1-kqSWkGX5xwxpR1PVUkj8aPj2Usk=",
                     "dev": true
                 }
             }
