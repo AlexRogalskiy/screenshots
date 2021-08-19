@@ -145,7 +145,6 @@ RUN rm -rf /var/cache/apt/* /tmp/* /var/tmp/*
 COPY package.json .
 
 COPY scripts ./scripts
-COPY data ./data
 
 ##
 ## ---- Node Dependencies ----
