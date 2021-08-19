@@ -137,6 +137,20 @@ LGPLv3 is additional permissions on top of GPLv3.
 
 ![license](https://user-images.githubusercontent.com/19885116/48661948-6cf97e80-ea7a-11e8-97e7-b45332a13e49.png)
 
+## *Kubernetes*
+
+Running k8s cluster with tilt command by acquiring k8s deployment configuration:
+
+```shell
+tilt up
+```
+
+Shutting down k8s cluster with provisioned resources removal:
+
+```shell
+tilt down --delete-namespaces
+```
+
 ## *Authors*
 
 ***Styled Screenshots*** is maintained by the following GitHub team-members:
@@ -167,6 +181,8 @@ See also the list of [contributors][contributors] who participated in this proje
 ## *Acknowledgement*
 
 [![Stargazers repo roster for @AlexRogalskiy/screenshots](https://reporoster.com/stars/AlexRogalskiy/screenshots)][stars]
+
+[![Stargazers over time](https://starchart.cc/AlexRogalskiy/screenshots.svg)][stars_chart]
 
 ## *Forks*
 
@@ -217,6 +233,8 @@ Like ***Styled Screenshots*** ? Consider buying me a coffee :)
 [wiki]: https://github.com/AlexRogalskiy/screenshots/wiki
 
 [stars]: https://github.com/AlexRogalskiy/screenshots/stargazers
+
+[stars_chart]: https://starchart.cc/AlexRogalskiy/screenshots
 
 [forkers]: https://github.com/AlexRogalskiy/screenshots/network/members
 

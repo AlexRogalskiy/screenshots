@@ -1,13 +1,70 @@
 version: '3.9'
 
+x-deploy: &deploy-template
+  deploy:
+    mode: global
+
+x-restart-deploy: &restart-deploy-template
+  <<: *deploy-template
+  deploy:
+    restart_policy:
+      condition: on-failure
+      max_attempts: 3
+      delay: 5s
+      window: 120s
+
+x-replica-deploy: &replica-deploy-template
+  <<: *deploy-template
+  deploy:
+    mode: replicated
+    replicas: 2
+    update_config:
+      parallelism: 2
+      delay: 10s
+      order: stop-first
+    resources:
+      limits:
+        cpus: '0.5'
+        memory: 1000M
+      reservations:
+        memory: 250M
+
+x-logging: &logging-template
+  logging:
+    options:
+      max-size: "100m"
+      max-file: "10"
+
+x-restart: &restart-template
+  restart: unless-stopped
+
 services:
   app:
-    container_name: styled-screenshots
-    hostname: '$APP_HOSTNAME'
+    <<: *deploy-template
+    <<: *logging-template
+    <<: *restart-template
+    container_name: ${APP_CONTAINER_NAME:-'styled-screenshots'}
+    image: ${APP_IMAGE_NAME:-'styled-screenshots'}
+    hostname: ${APP_HOST_NAME:-'styled-screenshots'}
+    domainname: ${APP_DOMAIN_NAME:-'docker.local'}
+    extra_hosts:
+      - "server:127.0.0.1"
     build:
       context: './'
       dockerfile: Dockerfile
-    restart: always
+      labels:
+        - "org.opencontainers.image.authors=Alexander Rogalskiy"
+        - "org.opencontainers.image.vendor=Sensiblemetrics, Inc."
+      args:
+        IMAGE_SOURCE: "$IMAGE_SOURCE"
+        IMAGE_TAG: "$IMAGE_TAG"
+        VERCEL_TOKEN: "$VERCEL_TOKEN"
+    secrets:
+      - vercel_token
+    env_file:
+      - .env
+    #    environment:
+    #      VERCEL_TOKEN: /run/secrets/vercel_token
     volumes:
       - type: volume
         source: appvolume
@@ -18,7 +75,7 @@ services:
         source: ./data
         target: /usr/src/data
     healthcheck:
-      test: ['CMD-SHELL', 'nc', '-vz', 'localhost', '3000']
+      test: [ 'CMD-SHELL', 'nc', '-vz', 'localhost', '3000' ]
       interval: 3s
       retries: 15
       start_period: 30s
@@ -26,12 +83,6 @@ services:
       - default
     ports:
       - '${IP_ADDRESS:-127.0.0.1}:${APP_SERVER_PORT:-3000}:3000'
-    deploy:
-      mode: global
-    logging:
-      options:
-        max-size: '100m'
-        max-file: '10'
 
 networks:
   default:
@@ -46,3 +97,7 @@ volumes:
       o: bind
       type: none
       device: ./
+
+secrets:
+  vercel_token:
+    file: ./vercel_token.txt # put vercel token to this file

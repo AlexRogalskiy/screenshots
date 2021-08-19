@@ -1,0 +1,21 @@
+name: VersionEye
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Verify license
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update the mvnd Homebrew tap
+        env:
+          VERSIONEYE_TOKEN: ${{ secrets.MVND_CI_TOKEN }}
+        run: |
+          curl --http1.1 -X POST https://api.versioneye.com/v1/scans \
+               -H "Authorization: Bearer $VERSIONEYE_TOKEN" \
+               -F "pm_file[]=@package.json" \
+               -F "project_name=screenshots"

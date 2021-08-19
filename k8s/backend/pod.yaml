@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend
+  namespace: webapp
+  labels:
+    app.kubernetes.io/name: backend
+    app.kubernetes.io/instance: styled-screenshots
+    app.kubernetes.io/version: '0.0.0'
+    app.kubernetes.io/component: function
+    app.kubernetes.io/part-of: serverless
+    app.kubernetes.io/managed-by: tilt
+
+spec:
+  restartPolicy: Never
+  containers:
+    - name: backend
+      image: styled-screenshots
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 3000
+      env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name

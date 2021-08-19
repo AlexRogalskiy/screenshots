@@ -23,8 +23,7 @@
         "plugin:eslint-comments/recommended",
         "plugin:unicorn/recommended",
         "plugin:@typescript-eslint/recommended",
-        "prettier",
-        "prettier/@typescript-eslint"
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -69,7 +68,7 @@
         "no-extend-native": "error",
         "no-implicit-globals": "error",
         "no-multi-spaces": "error",
-        "no-invalid-this": "off",
+        "no-invalid-this": "warn",
         "array-bracket-spacing": "error",
         "block-spacing": "error",
         "keyword-spacing": "error",
@@ -79,11 +78,17 @@
         "no-unused-vars": "off",
         "camelcase": "off",
         "no-angle-bracket-type-assertion": "off",
+        "unicorn/prefer-module": "off",
+        "unicorn/no-null": "off",
         "unicorn/filename-case": "off",
+        "unicorn/no-array-reduce": "off",
         "unicorn/prevent-abbreviations": "off",
         "unicorn/no-nested-ternary": "off",
+        "unicorn/no-object-as-default-parameter": "off",
+        "unicorn/prefer-node-protocol": "off",
+        "unicorn/import-style": "off",
         "spellcheck/spell-checker": [
-            "off",
+            1,
             {
                 "lang": "en_GB",
                 "skipWords": [
@@ -187,8 +192,7 @@
         ],
         "@typescript-eslint/no-array-constructor": "error",
         "@typescript-eslint/no-empty-interface": "error",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/no-extraneous-class": "error",
         "@typescript-eslint/no-for-in-array": "error",
         "@typescript-eslint/no-inferrable-types": "error",

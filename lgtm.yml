@@ -5,6 +5,5 @@ extraction:
         - node_modules
         - docs
         - data
-        - .qawolf
       filters:
         - exclude: "**/*.bundle.js"

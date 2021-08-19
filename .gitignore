@@ -6,6 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# Local files
+vercel_token.txt
+
 # BlueJ files
 *.ctxt
 *.iml
