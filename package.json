@@ -67,7 +67,7 @@
         "lodash": "^4.17.21",
         "playwright-chromium": "^1.14.0",
         "playwright-core": "^1.14.0",
-        "puppeteer-core": "^7.0.0"
+        "puppeteer-core": "^21.0.0"
     },
     "devDependencies": {
         "@semantic-release/github": "^7.2.3",
